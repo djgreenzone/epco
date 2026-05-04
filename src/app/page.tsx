@@ -64,18 +64,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SEAMLESS LOOP ANIMATION */}
+      <style>{`
+        @keyframes seamless-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-100%); }
+        }
+        .animate-seamless-marquee {
+          animation: seamless-marquee 35s linear infinite;
+        }
+      `}</style>
+
       {/* 4. THE TRUST BAR */}
       <section className="py-6 bg-white flex flex-col items-center overflow-hidden relative z-40 shadow-xl border-b border-gray-100">
         <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-4">// BEHIND 30 YEARS OF CONSUMER PHENOMENA</p>
-        <div className="w-full overflow-hidden">
-          <div className="flex w-max animate-scroll items-center gap-16 px-8">
-            {/* Logos */}
-            <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
-            <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
-            <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
-            <img src="/Snuggie.PNG" alt="Snuggie" className="h-16 w-auto object-contain" />
-            <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
-            <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
+        
+        {/* The Scrolling Track Container */}
+        <div className="flex w-full group overflow-hidden">
+          
+          {/* TRACK 1 */}
+          <div className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8">
             <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
             <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
             <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
@@ -83,6 +91,17 @@ export default function Home() {
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
           </div>
+
+          {/* TRACK 2 (Identical to Track 1 for the seamless loop) */}
+          <div className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8" aria-hidden="true">
+            <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
+            <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
+            <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
+            <img src="/Snuggie.PNG" alt="Snuggie" className="h-16 w-auto object-contain" />
+            <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
+            <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
+          </div>
+
         </div>
       </section>
 
