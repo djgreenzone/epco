@@ -204,7 +204,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/GeorgeFormanGrill.jpg')" }} />
                   <img src="/GeorgFormanGrill.png" alt="Foreman" className="relative z-10 w-full h-full object-contain drop-shadow-2xl" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-[#00f2ff] transition-colors">The George Foreman Grill</h3>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-[#00f2ff] transition-colors">George Foreman Grill</h3>
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Repositioned a boxing legend into a $1B+ kitchen staple.</p>
                 <button className="w-full py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all">Analyze DRTV Logic</button>
               </article>
@@ -236,7 +236,15 @@ export default function Home() {
 
       {/* 8. GLOBAL INFRASTRUCTURE: CINEMATIC HORIZON */}
       <section className="w-full bg-[#0b0e14] py-40 relative overflow-hidden border-t border-gray-900">
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        
+        {/* PARALLAX BACKGROUND ENGINE */}
+        <div 
+          className="absolute inset-0 z-0 bg-fixed bg-center bg-cover opacity-[0.35]"
+          style={{ backgroundImage: "url('/Parralax_Epco.png')" }}
+        />
+
+        {/* HORIZON GLOW (Overlays the Parallax) */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
           <svg viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[200%] md:w-[150%] opacity-40 blur-[80px]">
             <path d="M0 600C0 268.629 268.629 0 600 0H840C1171.37 0 1440 268.629 1440 600V600H0V600Z" fill="url(#inf_horizon_gradient)" />
             <defs>
@@ -249,8 +257,8 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto px-8 md:px-12 relative z-10 text-white">
           <div className="mb-24 text-center">
-            <p className="font-mono text-xs text-gray-500 mb-4 tracking-wider uppercase">// INFRASTRUCTURE SCALE</p>
-            <h2 className="text-5xl md:text-7xl font-heading font-bold leading-tight">
+            <p className="font-mono text-xs text-[#00f2ff] mb-4 tracking-wider uppercase font-bold">// INFRASTRUCTURE SCALE</p>
+            <h2 className="text-5xl md:text-7xl font-heading font-bold leading-tight drop-shadow-xl">
               Global Reach. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Local Presence.</span>
             </h2>
@@ -258,17 +266,17 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
             {['United States', 'Shenzhen', 'Vietnam', 'Logistics'].map((city, idx) => (
-              <div key={city} className="relative group">
+              <div key={city} className="relative group bg-black/20 p-6 rounded-xl border border-white/5 backdrop-blur-sm hover:bg-black/40 transition-all">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="status-pulse w-2 h-2 bg-[#00f2ff]"></div>
-                  <span className="font-mono text-[10px] text-gray-500 uppercase tracking-widest">Active Hub</span>
+                  <div className="status-pulse w-2 h-2 bg-[#00f2ff] rounded-full animate-pulse"></div>
+                  <span className="font-mono text-[10px] text-[#00f2ff] uppercase tracking-widest font-bold">Active Hub</span>
                 </div>
-                <h3 className="text-3xl font-heading font-bold mb-2 group-hover:text-[#00f2ff] transition-colors">{city}</h3>
+                <h3 className="text-3xl font-heading font-bold mb-2 group-hover:text-white transition-colors">{city}</h3>
                 <div className="h-[1px] w-full bg-gradient-to-r from-[#00f2ff33] to-transparent mb-6"></div>
-                <ul className="text-gray-500 text-xs space-y-4 font-medium uppercase tracking-wider">
-                  <li><span className="text-[#00f2ff]">01</span> Product Engineering</li>
-                  <li><span className="text-[#00f2ff]">02</span> Global Sourcing</li>
-                  <li><span className="text-[#00f2ff]">03</span> Final Assembly</li>
+                <ul className="text-gray-400 text-xs space-y-4 font-medium uppercase tracking-wider">
+                  <li><span className="text-[#ff00ea] mr-2">01</span> Product Engineering</li>
+                  <li><span className="text-[#ff00ea] mr-2">02</span> Global Sourcing</li>
+                  <li><span className="text-[#ff00ea] mr-2">03</span> Final Assembly</li>
                 </ul>
               </div>
             ))}
@@ -294,25 +302,25 @@ export default function Home() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-gray-800">
-                  <th className="p-8 font-mono text-[10px] text-gray-500 uppercase tracking-widest w-1/3">Metric</th>
-                  <th className="p-8 font-mono text-[10px] text-gray-500 uppercase tracking-widest w-1/3">Agency</th>
-                  <th className="p-8 font-mono text-[10px] text-[#00f2ff] uppercase tracking-widest w-1/3">EPCO Model</th>
+                  <th className="p-8 font-mono text-[18px] text-white-500 uppercase tracking-widest w-1/3">Metric</th>
+                  <th className="p-8 font-mono text-[18px] text-white-500 uppercase tracking-widest w-1/3">Agency</th>
+                  <th className="p-8 font-mono text-[18px] text-[#00f2ff] uppercase tracking-widest w-1/3">EPCO Model</th>
                 </tr>
               </thead>
               <tbody className="text-sm text-white">
                 <tr className="border-b border-gray-800 hover:bg-white/[0.02] transition-colors">
-                  <td className="p-8 text-gray-400 font-medium">Supply Chain</td>
-                  <td className="p-8 text-gray-600">Zero Control.</td>
+                  <td className="p-8 text-white-400 font-normal">Supply Chain</td>
+                  <td className="p-8 text-white-600">Zero Control.</td>
                   <td className="p-8 font-bold text-[#00f2ff]">Total Control.</td>
                 </tr>
                 <tr className="border-b border-gray-800 hover:bg-white/[0.02] transition-colors">
-                  <td className="p-8 text-gray-400 font-medium">Speed</td>
-                  <td className="p-8 text-gray-600">6-12 Months.</td>
+                  <td className="p-8 text-white-400 font-normal">Speed</td>
+                  <td className="p-8 text-white-600">6-12 Months.</td>
                   <td className="p-8 font-bold text-[#00f2ff]">90 Days.</td>
                 </tr>
                 <tr className="hover:bg-white/[0.02] transition-colors">
-                  <td className="p-8 text-gray-400 font-medium">Focus</td>
-                  <td className="p-8 text-gray-600">"Likes" & Impressions.</td>
+                  <td className="p-8 text-white-400 font-normal">Focus</td>
+                  <td className="p-8 text-white-600">"Likes" & Impressions.</td>
                   <td className="p-8 font-bold text-[#00f2ff]">Direct Response ROI.</td>
                 </tr>
               </tbody>
