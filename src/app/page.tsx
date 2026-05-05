@@ -1,7 +1,32 @@
 "use client";
 import { useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+// Initialize Supabase ONCE
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
 export default function Home() { 
-  const [showCalendar, setShowCalendar] = useState(false); return (
+  const [showCalendar, setShowCalendar] = useState(false);
+
+  const handleGatekeeperSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const revenue = formData.get("revenue") as string;
+
+    setShowCalendar(true);
+
+    try {
+      await supabase.from("leads").insert([{ name, email, revenue }]);
+    } catch (err) {
+      console.error("Supabase Error:", err);
+    }
+  };
+
+  return (
     <main className="min-h-screen bg-white text-obsidian font-sans overflow-x-hidden">
       
       {/* 1. GLOBAL ANIMATION ENGINE */}
@@ -330,7 +355,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. PARTNERSHIP INTAKE (The 2-Step Gatekeeper) */}
+      {/* 9. PARTNERSHIP INTAKE (The Gatekeeper) */}
       <section id="booking-terminal" className="w-full bg-[#0b0e14] py-32 relative">
         <div className="max-w-4xl mx-auto px-8 relative z-10">
           
@@ -339,72 +364,52 @@ export default function Home() {
             <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
               Start the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Phenomenon.</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              We are highly selective. Submit your initial metrics below to unlock Eddy's private calendar.
-            </p>
           </div>
 
-          {/* THE GLOWING TERMINAL */}
-          <div className="bg-[#121620] border border-[#00f2ff]/20 rounded-2xl shadow-[0_0_50px_rgba(0,242,255,0.15)] relative overflow-hidden transition-all hover:shadow-[0_0_70px_rgba(0,242,255,0.25)] w-full min-h-[500px]">
-            
-            {/* Intense Top Edge Light Leak */}
+          <div className="bg-[#121620] border border-[#00f2ff]/20 rounded-2xl shadow-[0_0_50px_rgba(0,242,255,0.15)] relative overflow-hidden min-h-[600px]">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent shadow-[0_0_20px_#00f2ff]"></div>
 
-            {/* THE LOGIC GATE */}
             {!showCalendar ? (
-              
-              /* STATE 1: THE CAPTURE FORM */
+              /* STEP 1: INTAKE FORM */
               <div className="p-8 md:p-12 animate-in fade-in duration-500">
-                <form className="space-y-6">
-                  
+                <form onSubmit={handleGatekeeperSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Full Name</label>
-                      <input type="text" placeholder="John Doe" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#00f2ff] focus:ring-1 focus:ring-[#00f2ff] transition-all" required />
+                      <input type="text" name="name" placeholder="John Doe" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00f2ff] transition-all" required />
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Work Email</label>
-                      <input type="email" placeholder="john@company.com" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#00f2ff] focus:ring-1 focus:ring-[#00f2ff] transition-all" required />
+                      <input type="email" name="email" placeholder="john@company.com" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00f2ff] transition-all" required />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Current Monthly Revenue</label>
-                    <select className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00f2ff] focus:ring-1 focus:ring-[#00f2ff] transition-all appearance-none">
-                      <option value="" disabled selected>Select your current scale...</option>
+                    <select name="revenue" defaultValue="" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00f2ff] appearance-none" required>
+                      <option value="" disabled>Select your current scale...</option>
                       <option value="Pre-Revenue">Pre-Revenue / Prototype Stage</option>
-                      <option value="$0 - $10k/mo">$0 - $10,000 / month</option>
-                      <option value="$10k - $50k/mo">$10,000 - $50,000 / month</option>
-                      <option value="$50k - $100k/mo">$50,000 - $100,000 / month</option>
-                      <option value="$100k+/mo">$100,000+ / month</option>
+                      <option value="$10k - $50k/mo">$10k - $50k / month</option>
+                      <option value="$100k+/mo">$100k+ / month</option>
                     </select>
                   </div>
 
-                  <button 
-                    type="button" 
-                    onClick={() => setShowCalendar(true)}
-                    className="w-full mt-8 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest py-4 rounded-lg hover:opacity-90 hover:scale-[1.02] transition-all flex justify-center items-center gap-3 shadow-[0_0_30px_rgba(0,242,255,0.3)]"
-                  >
+                  <button type="submit" className="w-full mt-8 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest py-4 rounded-lg hover:scale-[1.02] transition-all flex justify-center items-center gap-3 shadow-[0_0_30px_rgba(0,242,255,0.3)]">
                     See Eddy's Availability
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </button>
-                  
                 </form>
               </div>
-
             ) : (
-
-              /* STATE 2: THE CALENDAR REVEAL */
-              <div className="w-full h-[700px] p-2 md:p-4 animate-in fade-in duration-700">
+              /* STEP 2: CALENDAR REVEAL */
+              <div className="w-full h-[700px] p-2 animate-in fade-in duration-700">
                 <iframe 
                   src="https://cal.com/eddypham/a-little-more?embed=true" 
                   className="w-full h-full border-none rounded-xl bg-transparent"
                   title="Book a call with Eddy"
-                ></iframe>
+                />
               </div>
-
             )}
-
           </div>
         </div>
       </section>
