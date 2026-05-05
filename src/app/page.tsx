@@ -1,5 +1,7 @@
-export default function Home() {
-  return (
+"use client";
+import { useState } from "react";
+export default function Home() { 
+  const [showCalendar, setShowCalendar] = useState(false); return (
     <main className="min-h-screen bg-white text-obsidian font-sans overflow-x-hidden">
       
       {/* 1. GLOBAL ANIMATION ENGINE */}
@@ -27,9 +29,10 @@ export default function Home() {
             <a href="#" className="hover:text-white transition-colors">Our Edge</a>
             <a href="#" className="hover:text-white transition-colors">Solutions</a>
           </nav>
-          <button className="text-sm font-mono uppercase bg-white text-black px-6 py-2 rounded-xl hover:opacity-80 transition-opacity">
+          {/* UPDATED CTA: Now glides down to the Cal.com terminal */}
+          <a href="#booking-terminal" className="text-sm font-mono uppercase bg-white text-black px-6 py-2 rounded-xl hover:opacity-80 transition-opacity">
             Let's Talk
-          </button>
+          </a>
         </div>
       </header>
 
@@ -58,9 +61,13 @@ export default function Home() {
           <p className="mt-10 text-xl text-gray-400 max-w-2xl leading-relaxed font-medium">
             We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns. No fluff. Just real work and proven ROI.
           </p>
-          <button className="mt-12 bg-white text-black font-bold px-12 py-5 rounded-2xl text-xl hover:bg-[#00f2ff] hover:shadow-[0_0_40px_#00f2ff80] transition-all hover:scale-105 active:scale-95 shadow-2xl">
+          <a 
+            href="#booking-terminal" 
+            className="inline-flex justify-center items-center gap-3 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest px-8 py-5 rounded-lg hover:scale-[1.02] transition-all shadow-[0_0_30px_rgba(0,242,255,0.3)] mt-8"
+          >
             Book a Strategy Call
-          </button>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </a>
         </div>
       </section>
 
@@ -218,6 +225,8 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              
+              {/* CARD 1: GEORGE FOREMAN */}
               <article className="bg-gradient-to-br from-[#1a1c21] to-black rounded-3xl p-6 transition-all group border border-white/5 hover:border-[#00f2ff55]">
                 <div className="relative aspect-square overflow-hidden mb-8 bg-white rounded-2xl flex items-center justify-center p-10 shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/GeorgeFormanGrill.jpg')" }} />
@@ -225,9 +234,15 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-[#00f2ff] transition-colors">George Foreman Grill</h3>
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Repositioned a boxing legend into a $1B+ kitchen staple.</p>
-                <button className="w-full py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all">Analyze DRTV Logic</button>
+                <a 
+                  href="#booking-terminal" 
+                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all"
+                >
+                  Analyze DRTV Logic
+                </a>
               </article>
 
+              {/* CARD 2: THE SNUGGIE */}
               <article className="bg-gradient-to-br from-[#1a1c21] to-black rounded-3xl p-6 transition-all group border border-white/5 hover:border-[#00f2ff55]">
                 <div className="relative aspect-square overflow-hidden mb-8 bg-white rounded-2xl flex items-center justify-center p-10 shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/Snuggie_prodct_mockup.jpg')" }} />
@@ -235,9 +250,15 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-[#00f2ff] transition-colors">The Snuggie</h3>
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Engineered a global cultural phenomenon for retail expansion.</p>
-                <button className="w-full py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all">Explore Viral Scaling</button>
+                <a 
+                  href="#booking-terminal" 
+                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all"
+                >
+                  Explore Viral Scaling
+                </a>
               </article>
 
+              {/* CARD 3: THE NINJA BLENDER */}
               <article className="bg-gradient-to-br from-[#1a1c21] to-black rounded-3xl p-6 transition-all group border border-white/5 hover:border-[#00f2ff55]">
                 <div className="relative aspect-square overflow-hidden mb-8 bg-white rounded-2xl flex items-center justify-center p-10 shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/Ninja.jpg')" }} />
@@ -245,8 +266,14 @@ export default function Home() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3 group-hover:text-[#00f2ff] transition-colors">The Ninja Blender</h3>
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Disrupted the high-end appliance market through strategic pricing.</p>
-                <button className="w-full py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all">Review Product ROI</button>
+                <a 
+                  href="#booking-terminal" 
+                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all"
+                >
+                  Review Product ROI
+                </a>
               </article>
+
             </div>
           </div>
         </section>
@@ -303,97 +330,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. THE STRATEGIC COMPARISON */}
-      <section className="w-full bg-[#0b0e14] py-32 border-t border-gray-900">
-        <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="mb-20">
-            <p className="font-mono text-xs text-gray-500 mb-4 tracking-wider uppercase">// COMPETITIVE DIAGNOSTICS</p>
-            <h2 className="text-4xl md:text-6xl font-heading font-bold text-white leading-tight">
-              Agencies <span className="text-gray-600 font-light italic">talk.</span> <br />
-              EPCO <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">builds.</span>
-            </h2>
-          </div>
-
-          <div className="w-full overflow-hidden rounded-3xl border border-gray-800 bg-[#14171c]/50 backdrop-blur-sm relative group">
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-               <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent opacity-20 absolute animate-[scan_4s_linear_infinite]"></div>
-            </div>
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="border-b border-gray-800">
-                  <th className="p-8 font-mono text-[18px] text-white-500 uppercase tracking-widest w-1/3">Metric</th>
-                  <th className="p-8 font-mono text-[18px] text-white-500 uppercase tracking-widest w-1/3">Agency</th>
-                  <th className="p-8 font-mono text-[18px] text-[#00f2ff] uppercase tracking-widest w-1/3">EPCO Model</th>
-                </tr>
-              </thead>
-              <tbody className="text-sm text-white">
-                <tr className="border-b border-gray-800 hover:bg-white/[0.02] transition-colors">
-                  <td className="p-8 text-white-400 font-normal">Supply Chain</td>
-                  <td className="p-8 text-white-600">Zero Control.</td>
-                  <td className="p-8 font-bold text-[#00f2ff]">Total Control.</td>
-                </tr>
-                <tr className="border-b border-gray-800 hover:bg-white/[0.02] transition-colors">
-                  <td className="p-8 text-white-400 font-normal">Speed</td>
-                  <td className="p-8 text-white-600">6-12 Months.</td>
-                  <td className="p-8 font-bold text-[#00f2ff]">90 Days.</td>
-                </tr>
-                <tr className="hover:bg-white/[0.02] transition-colors">
-                  <td className="p-8 text-white-400 font-normal">Focus</td>
-                  <td className="p-8 text-white-600">"Likes" & Impressions.</td>
-                  <td className="p-8 font-bold text-[#00f2ff]">Direct Response ROI.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-16 flex flex-col items-center">
-            <button className="bg-white text-black font-bold px-12 py-5 rounded-2xl text-xl hover:bg-[#00f2ff] hover:shadow-[0_0_30px_#00f2ff80] transition-all">
-              Apply for Partnership
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. THE APPLICATION (Intake Terminal) */}
-      <section className="w-full bg-[#0b0e14] py-32 relative overflow-hidden">
-        {/* Subtle Background Glow to separate from the table above */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100vw] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff33] to-transparent"></div>
-        
-        <div className="max-w-4xl mx-auto px-8 md:px-12 relative z-10">
-          <div className="text-center mb-20">
-            <p className="font-mono text-xs text-gray-500 mb-4 tracking-wider uppercase">// PARTNERSHIP INTAKE</p>
+      {/* 9. PARTNERSHIP INTAKE (The 2-Step Gatekeeper) */}
+      <section id="booking-terminal" className="w-full bg-[#0b0e14] py-32 relative">
+        <div className="max-w-4xl mx-auto px-8 relative z-10">
+          
+          <div className="text-center mb-16">
+            <p className="font-mono text-xs text-[#00f2ff] mb-4 tracking-wider uppercase font-bold">// SECURE UPLINK</p>
             <h2 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
               Start the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Phenomenon.</span>
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
-              We are selective with our partnerships. If your product meets the EPCO criteria, our team will reach out within 24 hours.
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              We are highly selective. Submit your initial metrics below to unlock Eddy's private calendar.
             </p>
           </div>
 
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="group relative">
-              <label className="block font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-2 group-focus-within:text-[#00f2ff] transition-colors">Full Name</label>
-              <input type="text" className="w-full bg-transparent border-b border-gray-800 py-3 text-white outline-none focus:border-[#00f2ff] transition-all placeholder:text-gray-700" placeholder="John Doe" />
-            </div>
+          {/* THE GLOWING TERMINAL */}
+          <div className="bg-[#121620] border border-[#00f2ff]/20 rounded-2xl shadow-[0_0_50px_rgba(0,242,255,0.15)] relative overflow-hidden transition-all hover:shadow-[0_0_70px_rgba(0,242,255,0.25)] w-full min-h-[500px]">
             
-            <div className="group relative">
-              <label className="block font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-2 group-focus-within:text-[#00f2ff] transition-colors">Company Email</label>
-              <input type="email" className="w-full bg-transparent border-b border-gray-800 py-3 text-white outline-none focus:border-[#00f2ff] transition-all placeholder:text-gray-700" placeholder="john@company.com" />
-            </div>
+            {/* Intense Top Edge Light Leak */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent shadow-[0_0_20px_#00f2ff]"></div>
 
-            <div className="md:col-span-2 group relative">
-              <label className="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-2 group-focus-within:text-[#ff00ea] transition-colors">Product Description & Current Scale</label>
-              <textarea rows={4} className="w-full bg-transparent border-b border-gray-800 py-3 text-white outline-none focus:border-[#ff00ea] transition-all placeholder:text-gray-700 resize-none" placeholder="Tell us about your product and current monthly revenue..."></textarea>
-            </div>
+            {/* THE LOGIC GATE */}
+            {!showCalendar ? (
+              
+              /* STATE 1: THE CAPTURE FORM */
+              <div className="p-8 md:p-12 animate-in fade-in duration-500">
+                <form className="space-y-6">
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Full Name</label>
+                      <input type="text" placeholder="John Doe" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#00f2ff] focus:ring-1 focus:ring-[#00f2ff] transition-all" required />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Work Email</label>
+                      <input type="email" placeholder="john@company.com" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-[#00f2ff] focus:ring-1 focus:ring-[#00f2ff] transition-all" required />
+                    </div>
+                  </div>
 
-            <div className="md:col-span-2 flex justify-center mt-8">
-              <button className="group relative bg-white text-black font-bold px-16 py-6 rounded-2xl text-xl overflow-hidden hover:scale-105 transition-all active:scale-95 shadow-[0_0_50px_rgba(255,255,255,0.1)]">
-                <span className="relative z-10">Submit Application</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute inset-0 bg-white group-hover:opacity-0 transition-opacity duration-500"></div>
-              </button>
-            </div>
-          </form>
+                  <div className="space-y-2">
+                    <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Current Monthly Revenue</label>
+                    <select className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00f2ff] focus:ring-1 focus:ring-[#00f2ff] transition-all appearance-none">
+                      <option value="" disabled selected>Select your current scale...</option>
+                      <option value="Pre-Revenue">Pre-Revenue / Prototype Stage</option>
+                      <option value="$0 - $10k/mo">$0 - $10,000 / month</option>
+                      <option value="$10k - $50k/mo">$10,000 - $50,000 / month</option>
+                      <option value="$50k - $100k/mo">$50,000 - $100,000 / month</option>
+                      <option value="$100k+/mo">$100,000+ / month</option>
+                    </select>
+                  </div>
+
+                  <button 
+                    type="button" 
+                    onClick={() => setShowCalendar(true)}
+                    className="w-full mt-8 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest py-4 rounded-lg hover:opacity-90 hover:scale-[1.02] transition-all flex justify-center items-center gap-3 shadow-[0_0_30px_rgba(0,242,255,0.3)]"
+                  >
+                    See Eddy's Availability
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </button>
+                  
+                </form>
+              </div>
+
+            ) : (
+
+              /* STATE 2: THE CALENDAR REVEAL */
+              <div className="w-full h-[700px] p-2 md:p-4 animate-in fade-in duration-700">
+                <iframe 
+                  src="https://cal.com/eddypham/a-little-more?embed=true" 
+                  className="w-full h-full border-none rounded-xl bg-transparent"
+                  title="Book a call with Eddy"
+                ></iframe>
+              </div>
+
+            )}
+
+          </div>
         </div>
       </section>
 
