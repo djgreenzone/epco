@@ -496,7 +496,7 @@ export default function Home() {
           <p className="font-mono text-[10px] text-[#00f2ff] mb-8 tracking-[0.5em] uppercase font-black animate-pulse">// ORBITAL LOGIC</p>
           
           <h2 className="text-4xl md:text-6xl font-heading font-black text-white leading-tight uppercase tracking-tighter drop-shadow-[0_10px_40px_rgba(0,0,0,1)]">
-            A Professional is <span className="text-gray-600 underline decoration-[#ff00ea]/30">expensive.</span> <br /> 
+            An Expert is <span className="text-gray-600 underline decoration-[#ff00ea]/30">expensive.</span> <br /> 
             An Amateur is <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00] animate-pulse">a Fortune.</span>
           </h2>
           
