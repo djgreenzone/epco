@@ -360,12 +360,12 @@ export default function Home() {
               },
               {
                 title: 'Mexico',
-                span: 'lg:col-span-3 md:col-span-1', // Swapped position, kept span for tablet symmetry
+                span: 'lg:col-span-3 md:col-span-1',
                 items: ['Nearshore Manufacturing', 'Injection Molding & Components', 'Cross Border Fulfillment']
               },
               {
                 title: 'Assembly & Logistics',
-                span: 'lg:col-span-3 md:col-span-2', // Spans full width on tablet to keep symmetry
+                span: 'lg:col-span-3 md:col-span-2',
                 items: ['US Finished Goods Distribution', 'Product Testing & Compliance', 'Customer Service & Contact Center']
               }
             ].map((hub) => (
@@ -381,7 +381,6 @@ export default function Home() {
                 <ul className="text-gray-400 text-xs space-y-4 font-medium uppercase tracking-wider">
                   {hub.items.map((item, idx) => (
                     <li key={idx} className="flex items-start">
-                      {/* CHANGED: text-[#ff00ea] to text-[#00f2ff] (Cyan Blue) */}
                       <span className="text-[#00f2ff] mr-2">0{idx + 1}</span> 
                       <span>{item}</span>
                     </li>
@@ -390,6 +389,8 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
       {/* 9. PARTNERSHIP INTAKE (The Gatekeeper) */}
       <section id="booking-terminal" className="w-full bg-[#0b0e14] py-32 relative">
