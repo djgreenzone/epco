@@ -311,13 +311,13 @@ export default function Home() {
       {/* 8. GLOBAL INFRASTRUCTURE: CINEMATIC HORIZON */}
       <section className="w-full bg-[#0b0e14] py-40 relative overflow-hidden border-t border-gray-900">
         
-        {/* PARALLAX BACKGROUND ENGINE */}
+        {/* PARALLAX BACKGROUND ENGINE (Preserved) */}
         <div 
           className="absolute inset-0 z-0 bg-fixed bg-center bg-cover opacity-[0.35]"
           style={{ backgroundImage: "url('/Parralax_Epco.png')" }}
         />
 
-        {/* HORIZON GLOW (Overlays the Parallax) */}
+        {/* HORIZON GLOW (Preserved) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
           <svg viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[200%] md:w-[150%] opacity-40 blur-[80px]">
             <path d="M0 600C0 268.629 268.629 0 600 0H840C1171.37 0 1440 268.629 1440 600V600H0V600Z" fill="url(#inf_horizon_gradient)" />
@@ -338,19 +338,51 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
-            {['United States', 'Shenzhen', 'Vietnam', 'Logistics'].map((city, idx) => (
-              <div key={city} className="relative group bg-black/20 p-6 rounded-xl border border-white/5 backdrop-blur-sm hover:bg-black/40 transition-all">
+          {/* ADVANCED 5-ITEM BENTO GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 text-left">
+            {[
+              {
+                title: 'United States',
+                span: 'lg:col-span-2 md:col-span-1',
+                items: ['Product Design & Engineering', 'Patent & Trademark Assistance', 'Final Product Assembly']
+              },
+              {
+                title: 'China',
+                span: 'lg:col-span-2 md:col-span-1',
+                items: ['Product Engineering', 'Rapid Prototyping', 'Finished Goods Manufacturing']
+              },
+              {
+                title: 'Vietnam',
+                span: 'lg:col-span-2 md:col-span-1',
+                items: ['Textile Manufacturing', 'Soft Goods Production', 'Packaging & Final Assembly']
+              },
+              {
+                title: 'Assembly & Logistics',
+                span: 'lg:col-span-3 md:col-span-1',
+                items: ['US Finished Goods Distribution', 'Product Testing & Compliance', 'Customer Service & Contact Center']
+              },
+              {
+                title: 'Mexico',
+                span: 'lg:col-span-3 md:col-span-2', // Spans full width on tablet to keep symmetry
+                items: ['Nearshore Manufacturing', 'Injection Molding & Components', 'Cross Border Fulfillment']
+              }
+            ].map((hub) => (
+              <div key={hub.title} className={`relative group bg-black/20 p-6 rounded-xl border border-white/5 backdrop-blur-sm hover:bg-black/40 transition-all ${hub.span}`}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="status-pulse w-2 h-2 bg-[#00f2ff] rounded-full animate-pulse"></div>
-                  <span className="font-mono text-[10px] text-[#00f2ff] uppercase tracking-widest font-bold">Active Hub</span>
+                  <span className="font-mono text-[10px] text-[#00f2ff] uppercase tracking-widest font-bold">
+                    {hub.title === 'Assembly & Logistics' ? 'Operations Hub' : 'Active Hub'}
+                  </span>
                 </div>
-                <h3 className="text-3xl font-heading font-bold mb-2 group-hover:text-white transition-colors">{city}</h3>
+                <h3 className="text-3xl font-heading font-bold mb-2 group-hover:text-white transition-colors">{hub.title}</h3>
                 <div className="h-[1px] w-full bg-gradient-to-r from-[#00f2ff33] to-transparent mb-6"></div>
                 <ul className="text-gray-400 text-xs space-y-4 font-medium uppercase tracking-wider">
-                  <li><span className="text-[#ff00ea] mr-2">01</span> Product Engineering</li>
-                  <li><span className="text-[#ff00ea] mr-2">02</span> Global Sourcing</li>
-                  <li><span className="text-[#ff00ea] mr-2">03</span> Final Assembly</li>
+                  {hub.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-[#ff00ea] mr-2">0{idx + 1}</span> 
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
