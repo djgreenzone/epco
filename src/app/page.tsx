@@ -484,7 +484,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-8 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
             <div>
-              <div className="font-heading font-black text-3xl tracking-tighter text-white mb-4">EPCO.</div>
+              <div className="flex items-center gap-3 mb-4">
+                <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
+                <span className="font-heading font-black text-3xl tracking-tighter text-white">EPCO.</span>
+              </div>
               <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
                 Engineering consumer phenomena since 1992. <br /> Built for the relentless.
               </p>
