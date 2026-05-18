@@ -122,7 +122,8 @@ export default function Home() {
             <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
             <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
             <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
-            <img src="/Snuggie.PNG" alt="Snuggie" className="h-16 w-auto object-contain" />
+            {/* CHANGED: .PNG to .png */}
+            <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
           </div>
@@ -132,7 +133,8 @@ export default function Home() {
             <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
             <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
             <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
-            <img src="/Snuggie.PNG" alt="Snuggie" className="h-16 w-auto object-contain" />
+            {/* CHANGED: .PNG to .png */}
+            <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
           </div>
