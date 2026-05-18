@@ -48,7 +48,10 @@ export default function Home() {
       {/* 2. NAVIGATION */}
       <header className="w-full bg-[#0b0e14] text-white relative z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-6 px-8 md:px-12">
-          <div className="font-heading font-black text-3xl tracking-tighter">EPCO.</div>
+          <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
+            <span className="font-heading font-black text-3xl tracking-tighter text-white">EPCO.</span>
+          </a>
           <nav className="hidden md:flex gap-8 text-sm font-mono uppercase font-semibold text-gray-400">
             <a href="#" className="hover:text-white transition-colors">Home</a>
             <a href="#" className="hover:text-white transition-colors">Our Edge</a>
