@@ -248,7 +248,7 @@ export default function Home() {
                 </h2>
               </div>
               <p className="text-gray-400 font-mono text-sm border-l-2 border-[#00f2ff] pl-6 max-w-xs">
-                Over $3B in combined retail sales generated across the portfolio.
+                Billions in combined retail sales generated across the portfolio.
               </p>
             </div>
 
