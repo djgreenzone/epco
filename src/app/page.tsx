@@ -359,14 +359,14 @@ export default function Home() {
                 items: ['Textile Manufacturing', 'Soft Goods Production', 'Packaging & Final Assembly']
               },
               {
-                title: 'Assembly & Logistics',
-                span: 'lg:col-span-3 md:col-span-1',
-                items: ['US Finished Goods Distribution', 'Product Testing & Compliance', 'Customer Service & Contact Center']
+                title: 'Mexico',
+                span: 'lg:col-span-3 md:col-span-1', // Swapped position, kept span for tablet symmetry
+                items: ['Nearshore Manufacturing', 'Injection Molding & Components', 'Cross Border Fulfillment']
               },
               {
-                title: 'Mexico',
+                title: 'Assembly & Logistics',
                 span: 'lg:col-span-3 md:col-span-2', // Spans full width on tablet to keep symmetry
-                items: ['Nearshore Manufacturing', 'Injection Molding & Components', 'Cross Border Fulfillment']
+                items: ['US Finished Goods Distribution', 'Product Testing & Compliance', 'Customer Service & Contact Center']
               }
             ].map((hub) => (
               <div key={hub.title} className={`relative group bg-black/20 p-6 rounded-xl border border-white/5 backdrop-blur-sm hover:bg-black/40 transition-all ${hub.span}`}>
@@ -381,7 +381,8 @@ export default function Home() {
                 <ul className="text-gray-400 text-xs space-y-4 font-medium uppercase tracking-wider">
                   {hub.items.map((item, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="text-[#ff00ea] mr-2">0{idx + 1}</span> 
+                      {/* CHANGED: text-[#ff00ea] to text-[#00f2ff] (Cyan Blue) */}
+                      <span className="text-[#00f2ff] mr-2">0{idx + 1}</span> 
                       <span>{item}</span>
                     </li>
                   ))}
@@ -389,8 +390,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
       {/* 9. PARTNERSHIP INTAKE (The Gatekeeper) */}
       <section id="booking-terminal" className="w-full bg-[#0b0e14] py-32 relative">
