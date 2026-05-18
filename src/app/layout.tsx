@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   keywords: ["Product Engineering", "Global Manufacturing", "Direct Response Marketing", "Eddy Pham", "EPCO"],
   authors: [{ name: "Eddy Pham" }],
   // Important for absolute paths in social sharing
-  metadataBase: new URL("https://epco.vercel.app"),
+  metadataBase: new URL("https://www.eddypham.company"),
   
   // OpenGraph (Facebook, LinkedIn, Discord previews)
   openGraph: {
     title: "EPCO | From Scribbles to Scale",
     description: "We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns.",
-    url: "https://epco.vercel.app",
+    url: "https://www.eddypham.company",
     siteName: "EPCO International",
     images: [
       {
