@@ -154,11 +154,12 @@ export default function Home() {
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
               
-              <div className="z-10 w-full md:w-[55%] h-[350px] md:h-full md:relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
+              {/* BULLETPROOF IMAGE CONTAINER: Always relative, always absolute inset, explicit 400px mobile height */}
+              <div className="z-10 w-full md:w-[55%] h-[400px] md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
                 <img 
                   src="/EddyPham_Professtional_Shoot.png" 
                   alt="Eddy Pham" 
-                  className="w-full h-full md:absolute md:inset-0 object-cover object-top md:object-center" 
+                  className="absolute inset-0 w-full h-full object-cover object-top" 
                 />
               </div>
             </article>
