@@ -142,12 +142,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- START THE DARK BLOCK (Bento -> Criteria -> Winners) --- */}
-      <div className="bg-[#0b0e14]">
-        
-        {/* 5. THE BENTO GRID */}
+      {/* 5. THE BENTO GRID */}
         <section className="py-24">
-          <div className="max-w-6xl mx-auto px-8 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[450px]">
+          {/* CHANGED: Removed the strict auto-rows-[450px] on mobile, keeping it only on md screens */}
+          <div className="max-w-6xl mx-auto px-8 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:auto-rows-[450px]">
+            
             <article className="md:col-span-2 bg-white rounded-3xl p-10 flex flex-col md:flex-row gap-8 justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all group overflow-hidden">
               <div className="z-10 flex flex-col justify-center w-full md:w-[45%]">
                 <p className="font-mono text-xs text-gray-400 mb-4 tracking-wider">// THE FOUNDER'S DESK</p>
@@ -155,12 +154,14 @@ export default function Home() {
                 <p className="text-gray-600 mb-6 text-sm leading-relaxed">Since 1992, I’ve lived in the trenches of product development. No MBA jargon. Just sound market intelligence.</p>
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
-              <div className="z-10 w-full md:w-[55%] h-full relative rounded-2xl overflow-hidden bg-gray-100">
-                <img src="/EddyPham_Professtional_Shoot.png" alt="Eddy Pham" className="absolute inset-0 w-full h-full object-cover" />
+              {/* CHANGED: Added h-[250px] for mobile explicitly, md:h-full for desktop. flex-shrink-0 prevents squashing. */}
+              <div className="z-10 w-full md:w-[55%] h-[250px] md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
+                {/* CHANGED: Added object-top md:object-center to keep the face in frame on mobile crops */}
+                <img src="/EddyPham_Professtional_Shoot.png" alt="Eddy Pham" className="absolute inset-0 w-full h-full object-cover object-top md:object-center" />
               </div>
             </article>
 
-            <article className="bg-[#14171c] border border-gray-800 rounded-3xl p-10 flex flex-col justify-center hover:border-transparent hover:shadow-[0_0_30px_#ff00ea66] transition-all group relative overflow-hidden text-white">
+            <article className="bg-[#14171c] border border-gray-800 rounded-3xl p-10 flex flex-col justify-center hover:border-transparent hover:shadow-[0_0_30px_#ff00ea66] transition-all group relative overflow-hidden text-white min-h-[300px] md:min-h-0">
               <div className="absolute inset-0 bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00] opacity-5"></div>
               <div className="relative z-10">
                 <p className="font-mono text-xs text-gray-500 mb-4 tracking-wider">// THE PARTNERSHIP</p>
@@ -169,7 +170,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="bg-white rounded-3xl p-10 flex flex-col justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all">
+            <article className="bg-white rounded-3xl p-10 flex flex-col justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all min-h-[350px] md:min-h-0">
               <div className="w-full flex justify-center flex-grow pt-4">
                 <img src="/idea.png" alt="Evaluate" className="w-36 h-36 object-contain" />
               </div>
@@ -180,7 +181,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="bg-white rounded-3xl p-10 flex flex-col justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all">
+            <article className="bg-white rounded-3xl p-10 flex flex-col justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all min-h-[350px] md:min-h-0">
               <div className="w-full flex justify-center flex-grow pt-4">
                 <img src="/boost.png" alt="Build" className="w-36 h-36 object-contain" />
               </div>
@@ -191,7 +192,7 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="bg-white rounded-3xl p-10 flex flex-col justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all">
+            <article className="bg-white rounded-3xl p-10 flex flex-col justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all min-h-[350px] md:min-h-0">
               <div className="w-full flex justify-center flex-grow pt-4">
                 <img src="/analytics.png" alt="Deploy" className="w-36 h-36 object-contain" />
               </div>
