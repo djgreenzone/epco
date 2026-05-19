@@ -52,11 +52,9 @@ export default function Home() {
             <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
             <span className="font-heading font-black text-3xl tracking-tighter text-white">EPCO.</span>
           </a>
-          <nav className="hidden md:flex gap-8 text-sm font-mono uppercase font-semibold text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">Home</a>
-            <a href="#" className="hover:text-white transition-colors">Our Edge</a>
-            <a href="#" className="hover:text-white transition-colors">Solutions</a>
-          </nav>
+          
+          {/* CHANGED: Removed the 3 navigation links completely */}
+          
           <a href="#booking-terminal" className="text-sm font-mono uppercase bg-white text-black px-6 py-2 rounded-xl hover:opacity-80 transition-opacity">
             Let's Talk
           </a>
