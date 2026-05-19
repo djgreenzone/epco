@@ -149,11 +149,12 @@ export default function Home() {
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
               
-              <div className="z-10 w-full md:w-[55%] h-[400px] md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
+              {/* THE FIX: 'aspect-square' forces a tall, unbreakable box on mobile. 'object-center' ensures the face is targeted. */}
+              <div className="z-10 w-full md:w-[55%] aspect-square md:aspect-auto md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
                 <img 
                   src="/EddyPham_Professtional_Shoot.png" 
                   alt="Eddy Pham" 
-                  className="absolute inset-0 w-full h-full object-cover object-top" 
+                  className="absolute inset-0 w-full h-full object-cover object-center" 
                 />
               </div>
             </article>
