@@ -57,7 +57,6 @@ export default function Home() {
             <a href="#" className="hover:text-white transition-colors">Our Edge</a>
             <a href="#" className="hover:text-white transition-colors">Solutions</a>
           </nav>
-          {/* UPDATED CTA: Now glides down to the Cal.com terminal */}
           <a href="#booking-terminal" className="text-sm font-mono uppercase bg-white text-black px-6 py-2 rounded-xl hover:opacity-80 transition-opacity">
             Let's Talk
           </a>
@@ -114,35 +113,31 @@ export default function Home() {
       <section className="py-6 bg-white flex flex-col items-center overflow-hidden relative z-40 shadow-xl border-b border-gray-100">
         <p className="font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-4">// BEHIND 30 YEARS OF CONSUMER PHENOMENA</p>
         
-        {/* The Scrolling Track Container */}
         <div className="flex w-full group overflow-hidden">
-          
-          {/* TRACK 1 */}
           <div className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8">
             <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
             <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
             <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
-            {/* CHANGED: .PNG to .png */}
             <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
           </div>
 
-          {/* TRACK 2 (Identical to Track 1 for the seamless loop) */}
           <div className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8" aria-hidden="true">
             <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
             <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
             <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
-            {/* CHANGED: .PNG to .png */}
             <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
           </div>
-
         </div>
       </section>
 
-      {/* 5. THE BENTO GRID */}
+      {/* --- START THE DARK BLOCK --- */}
+      <div className="bg-[#0b0e14]">
+
+        {/* 5. THE BENTO GRID */}
         <section className="py-24">
           <div className="max-w-6xl mx-auto px-8 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:auto-rows-[450px]">
             
@@ -154,7 +149,6 @@ export default function Home() {
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
               
-              {/* BULLETPROOF IMAGE CONTAINER: Always relative, always absolute inset, explicit 400px mobile height */}
               <div className="z-10 w-full md:w-[55%] h-[400px] md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
                 <img 
                   src="/EddyPham_Professtional_Shoot.png" 
@@ -260,7 +254,6 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               
-              {/* CARD 1: GEORGE FOREMAN */}
               <article className="bg-gradient-to-br from-[#1a1c21] to-black rounded-3xl p-6 transition-all group border border-white/5 hover:border-[#00f2ff55]">
                 <div className="relative aspect-square overflow-hidden mb-8 bg-white rounded-2xl flex items-center justify-center p-10 shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/GeorgeFormanGrill.jpg')" }} />
@@ -276,7 +269,6 @@ export default function Home() {
                 </a>
               </article>
 
-              {/* CARD 2: THE SNUGGIE */}
               <article className="bg-gradient-to-br from-[#1a1c21] to-black rounded-3xl p-6 transition-all group border border-white/5 hover:border-[#00f2ff55]">
                 <div className="relative aspect-square overflow-hidden mb-8 bg-white rounded-2xl flex items-center justify-center p-10 shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/Snuggie_prodct_mockup.jpg')" }} />
@@ -292,7 +284,6 @@ export default function Home() {
                 </a>
               </article>
 
-              {/* CARD 3: THE NINJA BLENDER */}
               <article className="bg-gradient-to-br from-[#1a1c21] to-black rounded-3xl p-6 transition-all group border border-white/5 hover:border-[#00f2ff55]">
                 <div className="relative aspect-square overflow-hidden mb-8 bg-white rounded-2xl flex items-center justify-center p-10 shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-700 group-hover:scale-110" style={{ backgroundImage: "url('/Ninja.jpg')" }} />
@@ -317,13 +308,11 @@ export default function Home() {
       {/* 8. GLOBAL INFRASTRUCTURE: CINEMATIC HORIZON */}
       <section className="w-full bg-[#0b0e14] py-40 relative overflow-hidden border-t border-gray-900">
         
-        {/* PARALLAX BACKGROUND ENGINE (Preserved) */}
         <div 
           className="absolute inset-0 z-0 bg-fixed bg-center bg-cover opacity-[0.35]"
           style={{ backgroundImage: "url('/Parralax_Epco.png')" }}
         />
 
-        {/* HORIZON GLOW (Preserved) */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
           <svg viewBox="0 0 1440 600" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[200%] md:w-[150%] opacity-40 blur-[80px]">
             <path d="M0 600C0 268.629 268.629 0 600 0H840C1171.37 0 1440 268.629 1440 600V600H0V600Z" fill="url(#inf_horizon_gradient)" />
@@ -344,7 +333,6 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* ADVANCED 5-ITEM BENTO GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 text-left">
             {[
               {
@@ -411,7 +399,6 @@ export default function Home() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent shadow-[0_0_20px_#00f2ff]"></div>
 
             {!showCalendar ? (
-              /* STEP 1: INTAKE FORM */
               <div className="p-8 md:p-12 animate-in fade-in duration-500">
                 <form onSubmit={handleGatekeeperSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -442,7 +429,6 @@ export default function Home() {
                 </form>
               </div>
             ) : (
-              /* STEP 2: CALENDAR REVEAL */
               <div className="w-full h-[700px] p-2 animate-in fade-in duration-700">
                 <iframe 
                   src="https://cal.com/eddypham/a-little-more?embed=true" 
@@ -458,23 +444,17 @@ export default function Home() {
       {/* 10. THE MANIFESTO (High-Contrast Prismatic Break) */}
       <section className="w-full bg-[#0b0e14] py-32 relative overflow-hidden flex items-center justify-center border-t border-white/5">
         
-        {/* THE SEPARATION ENGINE (The "Light Leak") */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] z-50">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent opacity-40 shadow-[0_0_20px_#00f2ff]"></div>
         </div>
 
-        {/* ORBITAL MOTION ENGINE */}
         <div className="absolute inset-0 pointer-events-none">
           
-          {/* TOP GLOW: This creates the separation from the section above */}
           <div 
             className="absolute -top-24 left-1/2 -translate-x-1/2 w-[100vw] h-[200px] opacity-30 blur-[100px] z-0"
-            style={{
-              background: 'linear-gradient(to bottom, #ff00ea, #00f2ff, transparent)',
-            }}
+            style={{ background: 'linear-gradient(to bottom, #ff00ea, #00f2ff, transparent)' }}
           />
 
-          {/* THE PLANET: High-saturation rotating core */}
           <div 
             className="absolute top-[50%] left-1/2 -translate-x-1/2 w-[160vw] aspect-square rounded-full z-0 animate-sweep opacity-80"
             style={{
@@ -484,18 +464,12 @@ export default function Home() {
             }}
           />
 
-          {/* THE LIMB: Colorful atmospheric edge */}
           <div 
             className="absolute top-[50%] left-1/2 -translate-x-1/2 w-[160vw] aspect-square rounded-full border-t-[4px] border-white/20 z-10 shadow-[0_-20px_60px_rgba(0,242,255,0.4)]"
-            style={{
-                borderColor: 'rgba(255, 255, 255, 0.3)'
-            }}
+            style={{ borderColor: 'rgba(255, 255, 255, 0.3)' }}
           />
 
-          {/* SATELLITE SCAN OVERLAY (Cranked up for tech feel) */}
-          <div className="absolute inset-0 opacity-[0.12] z-20" 
-               style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #00f2ff 2px, #00f2ff 3px)', backgroundSize: '100% 6px' }}>
-          </div>
+          <div className="absolute inset-0 opacity-[0.12] z-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #00f2ff 2px, #00f2ff 3px)', backgroundSize: '100% 6px' }}></div>
         </div>
 
         <div className="max-w-5xl mx-auto px-8 md:px-12 relative z-30 text-center">
@@ -522,7 +496,6 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-8 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12">
             
-            {/* BRAND BIO */}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
@@ -533,10 +506,8 @@ export default function Home() {
               </p>
             </div>
             
-            {/* 3-COLUMN LINK GRID */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16">
               
-              {/* COL 1: NAVIGATION */}
               <div>
                 <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Navigation</h4>
                 <ul className="text-gray-500 text-sm space-y-4">
@@ -546,7 +517,6 @@ export default function Home() {
                 </ul>
               </div>
               
-              {/* COL 2: LEGAL */}
               <div>
                 <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Legal</h4>
                 <ul className="text-gray-500 text-sm space-y-4">
@@ -555,11 +525,9 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* COL 3: CONNECT */}
               <div>
                 <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Connect</h4>
                 <ul className="text-gray-500 text-sm space-y-4">
-                  {/* Website */}
                   <li>
                     <a href="https://www.eddypham.company/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-[#ffcc00] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -568,7 +536,6 @@ export default function Home() {
                       <span>Website</span>
                     </a>
                   </li>
-                  {/* Substack */}
                   <li>
                     <a href="https://247eddy.substack.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-[#ff00ea] transition-colors" viewBox="0 0 24 24" fill="currentColor">
@@ -577,7 +544,6 @@ export default function Home() {
                       <span>247Eddy</span>
                     </a>
                   </li>
-                  {/* TikTok */}
                   <li>
                     <a href="https://www.tiktok.com/@eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-[#00f2ff] transition-colors" viewBox="0 0 24 24" fill="currentColor">
@@ -586,7 +552,6 @@ export default function Home() {
                       <span>@eddypham</span>
                     </a>
                   </li>
-                  {/* Facebook */}
                   <li>
                     <a href="https://www.facebook.com/Eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-[#4267B2] transition-colors" viewBox="0 0 24 24" fill="currentColor">
@@ -595,7 +560,6 @@ export default function Home() {
                       <span>EddyPham</span>
                     </a>
                   </li>
-                  {/* Instagram */}
                   <li>
                     <a href="https://www.instagram.com/eddypham/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-[#E1306C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -604,7 +568,6 @@ export default function Home() {
                       <span>@eddypham</span>
                     </a>
                   </li>
-                  {/* LinkedIn */}
                   <li>
                     <a href="https://www.linkedin.com/in/eddypham/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-[#0077b5] transition-colors" viewBox="0 0 24 24" fill="currentColor">
@@ -613,7 +576,6 @@ export default function Home() {
                       <span>EddyPham</span>
                     </a>
                   </li>
-                  {/* X (Twitter) */}
                   <li>
                     <a href="https://x.com/eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <svg className="w-4 h-4 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
@@ -628,7 +590,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* BOTTOM COPYRIGHT ROW */}
           <div className="mt-20 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">© 2026 EPCO INTERNATIONAL. ALL RIGHTS RESERVED.</p>
             <div className="flex gap-3 items-center">
