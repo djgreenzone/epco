@@ -153,9 +153,15 @@ export default function Home() {
                 <p className="text-gray-600 mb-6 text-sm leading-relaxed">Since 1992, I’ve lived in the trenches of product development. No MBA jargon. Just sound market intelligence.</p>
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
-              <div className="z-10 w-full md:w-[55%] h-[250px] md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
-                {/* CHANGED: Swapped object-cover to object-contain to prevent cropping. Anchored to object-bottom. */}
-                <img src="/EddyPham_Professtional_Shoot.png" alt="Eddy Pham" className="absolute inset-0 w-full h-full object-contain object-bottom" />
+              
+              {/* CHANGED: Removed fixed 250px height on mobile. Added mt-8 for spacing so it stacks cleanly under the text. */}
+              <div className="z-10 w-full md:w-[55%] md:h-full md:relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
+                {/* CHANGED: Mobile now uses natural h-auto. Desktop uses absolute positioning and object-cover to fit the grid. */}
+                <img 
+                  src="/EddyPham_Professtional_Shoot.png" 
+                  alt="Eddy Pham" 
+                  className="w-full h-auto md:absolute md:inset-0 md:h-full object-cover object-top md:object-center" 
+                />
               </div>
             </article>
 
