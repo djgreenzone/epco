@@ -516,7 +516,9 @@ export default function Home() {
       {/* 11. FOOTER */}
       <footer className="w-full bg-[#080a0f] py-20 border-t border-gray-900">
         <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+            
+            {/* BRAND BIO */}
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
@@ -527,7 +529,10 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-16">
+            {/* 3-COLUMN LINK GRID */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16">
+              
+              {/* COL 1: NAVIGATION */}
               <div>
                 <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Navigation</h4>
                 <ul className="text-gray-500 text-sm space-y-4">
@@ -536,6 +541,8 @@ export default function Home() {
                   <li><a href="#" className="hover:text-[#00f2ff] transition-colors">Infrastructure</a></li>
                 </ul>
               </div>
+              
+              {/* COL 2: LEGAL */}
               <div>
                 <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Legal</h4>
                 <ul className="text-gray-500 text-sm space-y-4">
@@ -543,10 +550,8 @@ export default function Home() {
                   <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Terms</a></li>
                 </ul>
               </div>
-            </div>
-          </div>
-          
-          {/* COL 3: CONNECT */}
+
+              {/* COL 3: CONNECT */}
               <div>
                 <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Connect</h4>
                 <ul className="text-gray-500 text-sm space-y-4">
@@ -615,20 +620,13 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
+
             </div>
           </div>
           
+          {/* BOTTOM COPYRIGHT ROW */}
           <div className="mt-20 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">© 2026 EPCO INTERNATIONAL. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-6">
-               <div className="w-2 h-2 rounded-full bg-[#00f2ff] status-pulse shadow-[0_0_8px_#00f2ff]"></div>
-               <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">System Operational</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      
+            <p className="text-gray-600 text-
 
     </main>
   );
