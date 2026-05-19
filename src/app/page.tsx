@@ -154,13 +154,11 @@ export default function Home() {
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
               
-              {/* CHANGED: Removed fixed 250px height on mobile. Added mt-8 for spacing so it stacks cleanly under the text. */}
-              <div className="z-10 w-full md:w-[55%] md:h-full md:relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
-                {/* CHANGED: Mobile now uses natural h-auto. Desktop uses absolute positioning and object-cover to fit the grid. */}
+              <div className="z-10 w-full md:w-[55%] h-[350px] md:h-full md:relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 mt-8 md:mt-0">
                 <img 
                   src="/EddyPham_Professtional_Shoot.png" 
                   alt="Eddy Pham" 
-                  className="w-full h-auto md:absolute md:inset-0 md:h-full object-cover object-top md:object-center" 
+                  className="w-full h-full md:absolute md:inset-0 object-cover object-top md:object-center" 
                 />
               </div>
             </article>
