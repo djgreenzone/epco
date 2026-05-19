@@ -144,7 +144,6 @@ export default function Home() {
 
       {/* 5. THE BENTO GRID */}
         <section className="py-24">
-          {/* CHANGED: Removed the strict auto-rows-[450px] on mobile, keeping it only on md screens */}
           <div className="max-w-6xl mx-auto px-8 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:auto-rows-[450px]">
             
             <article className="md:col-span-2 bg-white rounded-3xl p-10 flex flex-col md:flex-row gap-8 justify-between hover:shadow-[0_0_30px_#ff00ea66] transition-all group overflow-hidden">
@@ -154,10 +153,9 @@ export default function Home() {
                 <p className="text-gray-600 mb-6 text-sm leading-relaxed">Since 1992, I’ve lived in the trenches of product development. No MBA jargon. Just sound market intelligence.</p>
                 <p className="font-black text-black text-lg">- Eddy Pham</p>
               </div>
-              {/* CHANGED: Added h-[250px] for mobile explicitly, md:h-full for desktop. flex-shrink-0 prevents squashing. */}
               <div className="z-10 w-full md:w-[55%] h-[250px] md:h-full relative rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0">
-                {/* CHANGED: Added object-top md:object-center to keep the face in frame on mobile crops */}
-                <img src="/EddyPham_Professtional_Shoot.png" alt="Eddy Pham" className="absolute inset-0 w-full h-full object-cover object-top md:object-center" />
+                {/* CHANGED: Swapped object-cover to object-contain to prevent cropping. Anchored to object-bottom. */}
+                <img src="/EddyPham_Professtional_Shoot.png" alt="Eddy Pham" className="absolute inset-0 w-full h-full object-contain object-bottom" />
               </div>
             </article>
 
