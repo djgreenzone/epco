@@ -626,8 +626,15 @@ export default function Home() {
           
           {/* BOTTOM COPYRIGHT ROW */}
           <div className="mt-20 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-600 text-
+            <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">© 2026 EPCO INTERNATIONAL. ALL RIGHTS RESERVED.</p>
+            <div className="flex gap-3 items-center">
+               <div className="w-2 h-2 rounded-full bg-[#00f2ff] status-pulse shadow-[0_0_8px_#00f2ff]"></div>
+               <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">System Operational</p>
+            </div>
+          </div>
 
+        </div>
+      </footer>
     </main>
   );
 }
