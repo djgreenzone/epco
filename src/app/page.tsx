@@ -119,6 +119,7 @@ export default function Home() {
             <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
+            <img src="/Armsezzlogo.png" alt="ArmsEzzz" className="h-16 w-auto object-contain" />
           </div>
 
           <div className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8" aria-hidden="true">
@@ -128,6 +129,7 @@ export default function Home() {
             <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
             <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
             <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
+            <img src="/Armsezzlogo.png" alt="ArmsEzzz" className="h-16 w-auto object-contain" />
           </div>
         </div>
       </section>
