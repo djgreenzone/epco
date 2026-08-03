@@ -1,0 +1,77 @@
+"use client";
+
+export default function Footer() {
+  return (
+    <footer className="w-full bg-[#080a0f] py-20 border-t border-gray-900">
+      <div className="max-w-6xl mx-auto px-8 md:px-12">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+          
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
+              <span className="font-heading font-black text-3xl tracking-tighter text-white">EPCO.</span>
+            </div>
+            <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
+              Engineering consumer phenomena since 1992. <br /> Built for the relentless.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16">
+            
+            <div>
+              <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Navigation</h4>
+              <ul className="text-gray-500 text-sm space-y-4">
+                <li><a href="/" className="hover:text-[#00f2ff] transition-colors">Home</a></li>
+                <li><a href="/services" className="hover:text-[#00f2ff] transition-colors">Services</a></li>
+                <li><a href="/#booking-terminal" className="hover:text-[#00f2ff] transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Legal</h4>
+              <ul className="text-gray-500 text-sm space-y-4">
+                <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Privacy</a></li>
+                <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Terms</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Connect</h4>
+              <ul className="text-gray-500 text-sm space-y-4">
+                <li>
+                  <a href="https://www.eddypham.company/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <svg className="w-4 h-4 group-hover:text-[#ffcc00] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path>
+                    </svg>
+                    <span>Website</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://247eddy.substack.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <svg className="w-4 h-4 group-hover:text-[#ff00ea] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+                    </svg>
+                    <span>247Eddy</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
+                    <svg className="w-4 h-4 group-hover:text-[#00f2ff] transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                      <path dThat is a spot-on technical question. 
+
+Whether you need to share the home page code comes down to how your Next.js project is structured:
+
+### 1. If your Header & Footer are in `src/app/layout.tsx` (Best Practice)
+In Next.js App Router, the `layout.tsx` file wraps **every single page** on your site. If your navigation header and footer are placed inside `layout.tsx`, your new `services/page.tsx` automatically inherits them! You don't need to add header or footer code inside `services/page.tsx` at all.
+
+### 2. If your Header & Footer were written directly inside `src/app/page.tsx`
+If they were hardcoded directly onto the home page file (`src/app/page.tsx`), then **yes, absolutely share that code**. Passing `src/app/page.tsx` (or `src/app/layout.tsx`) allows us to:
+* Extract the exact navigation header and footer styles.
+* Refactor them into reusable `<Navbar />` and `<Footer />` components so both pages stay perfectly in sync.
+* Ensure you don't accidentally duplicate headers/footers on the `/services` route.
+
+---
+
+> **Quick Check:** Look at your browser on `http://localhost:3000/services` right now. If you already see your top navigation bar and footer wrapping your new services content, `layout.tsx` is doing the heavy lifting for you!
+
+If your header or footer looks missing or inconsistent on `/services`, paste your `src/app/page.tsx` or `src/app/layout.tsx` code here and we can align them. Are you currently seeing the site header and footer on your `/services` preview?
