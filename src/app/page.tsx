@@ -46,22 +46,6 @@ export default function Home() {
         .status-pulse { border-radius: 50%; animation: pulse-cyan 2s infinite; }
       `}</style>
 
-      {/* 2. NAVIGATION */}
-      <header className="w-full bg-[#0b0e14] text-white relative z-50">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-6 px-8 md:px-12">
-          <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
-            <span className="font-heading font-black text-3xl tracking-tighter text-white">EPCO.</span>
-          </a>
-          
-          {/* CHANGED: Removed the 3 navigation links completely */}
-          
-          <a href="#booking-terminal" className="text-sm font-mono uppercase bg-white text-black px-6 py-2 rounded-xl hover:opacity-80 transition-opacity">
-            Let's Talk
-          </a>
-        </div>
-      </header>
-
       {/* 3. HERO SECTION: HYPER-MOTION PRISMATIC HORIZON */}
       <section className="w-full bg-[#0b0e14] text-white py-48 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -492,116 +476,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 11. FOOTER */}
-      <footer className="w-full bg-[#080a0f] py-20 border-t border-gray-900">
-        <div className="max-w-6xl mx-auto px-8 md:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-            
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
-                <span className="font-heading font-black text-3xl tracking-tighter text-white">EPCO.</span>
-              </div>
-              <p className="text-gray-500 text-sm max-w-xs leading-relaxed">
-                Engineering consumer phenomena since 1992. <br /> Built for the relentless.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16">
-              
-              <div>
-                <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Navigation</h4>
-                <ul className="text-gray-500 text-sm space-y-4">
-                  <li><a href="#" className="hover:text-[#00f2ff] transition-colors">Home</a></li>
-                  <li><a href="#" className="hover:text-[#00f2ff] transition-colors">Our Edge</a></li>
-                  <li><a href="#" className="hover:text-[#00f2ff] transition-colors">Infrastructure</a></li>
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Legal</h4>
-                <ul className="text-gray-500 text-sm space-y-4">
-                  <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Privacy</a></li>
-                  <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Terms</a></li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Connect</h4>
-                <ul className="text-gray-500 text-sm space-y-4">
-                  <li>
-                    <a href="https://www.eddypham.company/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-[#ffcc00] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path>
-                      </svg>
-                      <span>Website</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://247eddy.substack.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-[#ff00ea] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
-                      </svg>
-                      <span>247Eddy</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.tiktok.com/@eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-[#00f2ff] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                      </svg>
-                      <span>@eddypham</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.facebook.com/Eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-[#4267B2] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                      </svg>
-                      <span>EddyPham</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/eddypham/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-[#E1306C] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
-                      <span>@eddypham</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/eddypham/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-[#0077b5] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                      </svg>
-                      <span>EddyPham</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://x.com/eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
-                      <svg className="w-4 h-4 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-                      </svg>
-                      <span>@eddypham</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-          
-          <div className="mt-20 pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">© 2026 EPCO INTERNATIONAL. ALL RIGHTS RESERVED.</p>
-            <div className="flex gap-3 items-center">
-               <div className="w-2 h-2 rounded-full bg-[#00f2ff] status-pulse shadow-[0_0_8px_#00f2ff]"></div>
-               <p className="text-gray-600 text-[10px] font-mono uppercase tracking-widest">System Operational</p>
-            </div>
-          </div>
-
-        </div>
-      </footer>
     </main>
   );
 }
