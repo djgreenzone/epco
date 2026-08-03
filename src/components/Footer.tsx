@@ -57,23 +57,17 @@ export default function Footer() {
                 <li>
                   <a href="https://www.tiktok.com/@eddypham" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-white transition-colors group">
                     <svg className="w-4 h-4 group-hover:text-[#00f2ff] transition-colors" viewBox="0 0 24 24" fill="currentColor">
-                     <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
-                   </svg>
-                </a>
+                      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+                    </svg>
+                    <span>TikTok</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-Whether you need to share the home page code comes down to how your Next.js project is structured:
-
-### 1. If your Header & Footer are in `src/app/layout.tsx` (Best Practice)
-In Next.js App Router, the `layout.tsx` file wraps **every single page** on your site. If your navigation header and footer are placed inside `layout.tsx`, your new `services/page.tsx` automatically inherits them! You don't need to add header or footer code inside `services/page.tsx` at all.
-
-### 2. If your Header & Footer were written directly inside `src/app/page.tsx`
-If they were hardcoded directly onto the home page file (`src/app/page.tsx`), then **yes, absolutely share that code**. Passing `src/app/page.tsx` (or `src/app/layout.tsx`) allows us to:
-* Extract the exact navigation header and footer styles.
-* Refactor them into reusable `<Navbar />` and `<Footer />` components so both pages stay perfectly in sync.
-* Ensure you don't accidentally duplicate headers/footers on the `/services` route.
-
----
-
-> **Quick Check:** Look at your browser on `http://localhost:3000/services` right now. If you already see your top navigation bar and footer wrapping your new services content, `layout.tsx` is doing the heavy lifting for you!
-
-If your header or footer looks missing or inconsistent on `/services`, paste your `src/app/page.tsx` or `src/app/layout.tsx` code here and we can align them. Are you currently seeing the site header and footer on your `/services` preview?
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
