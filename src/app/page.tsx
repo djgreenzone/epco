@@ -65,11 +65,11 @@ export default function Home() {
       <section className="w-full bg-[#0b0e14] text-white py-48 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div 
-            className="absolute top-[60%] left-1/2 w-[180vw] aspect-square rounded-full animate-sweep opacity-60 blur-[100px] z-0"
+            className="absolute top-[20%] left-1/2 w-[180vw] aspect-square rounded-full animate-sweep opacity-60 blur-[100px] z-0"
             style={{ background: 'conic-gradient(from 0deg, #00f2ff, #ff00ea, #ffcc00, #00f2ff)', transformOrigin: '50% 55%' }}
           />
           <div 
-            className="absolute top-[65%] left-1/2 -translate-x-1/2 w-[200vw] h-[40vh] animate-aurora z-10 blur-[120px]"
+            className="absolute top-[30%] left-1/2 -translate-x-1/2 w-[200vw] h-[40vh] animate-aurora z-10 blur-[120px]"
             style={{ background: 'linear-gradient(90deg, transparent, #00f2ff, #ff00ea, transparent)' }}
           />
           <div className="absolute top-[70%] left-1/2 -translate-x-1/2 w-[150vw] aspect-square rounded-full border-t-[2px] border-white/30 z-20 shadow-[0_-10px_40px_rgba(255,255,255,0.1)]" />
