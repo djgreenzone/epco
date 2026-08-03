@@ -3,8 +3,9 @@ import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase ONCE
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+// Initialize Supabase ONCE (with build-safe fallbacks)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder.supabase.co";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-key";
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function Home() { 
