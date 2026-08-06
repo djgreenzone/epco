@@ -9,6 +9,8 @@ import {
   useReducedMotion,
   type MotionValue,
 } from "framer-motion";
+import WorkCarousel from "@/components/WorkCarousel";
+import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
 /*  TOKENS                                                             */
@@ -376,10 +378,10 @@ export default function ServicesPage() {
           loop
           playsInline
           preload="none"
-          poster="/media/hero-poster.jpg"
+          poster={media("web-development", "epco-webdev-01.webp")}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.28]"
         >
-          <source src="" type="video/mp4" />
+          <source src={media("web-development", "epco-webdev-01-1280.mp4")} type="video/mp4" />
         </video>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/85 to-black" />
         <div
@@ -461,7 +463,7 @@ export default function ServicesPage() {
           />
         </div>
         <div className="pl-6 md:pl-12">
-          <ServiceCarousel />
+          <WorkCarousel />
         </div>
         <div className="mx-auto mt-6 max-w-[1400px] px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
           Drag →
@@ -488,10 +490,10 @@ export default function ServicesPage() {
               loop
               playsInline
               preload="none"
-              poster="/media/showreel-poster.jpg"
+              poster={media("web-development", "epco-webdev-01.webp")}
               className="absolute inset-0 h-full w-full object-cover"
             >
-              <source src="" type="video/mp4" />
+              <source src={media("web-development", "epco-showreel-02-1920.mp4")} type="video/mp4" />
             </video>
             <div className="absolute inset-0 grid place-items-center bg-black/30">
               <div
