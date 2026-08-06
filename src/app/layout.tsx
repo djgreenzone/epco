@@ -1,8 +1,8 @@
 // 1. Necessary Imports
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 // 2. Font Loading (High-end tech aesthetic)
