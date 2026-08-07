@@ -370,7 +370,7 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-black text-white antialiased">
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden px-6 pb-24 pt-40 md:px-12 md:pb-32 md:pt-52">
+      <section className="relative overflow-hidden px-8 pb-24 pt-40 md:px-12 md:pb-32 md:pt-52">
         {/* Background video — drop the Supabase CDN URL into src */}
         <video
           autoPlay
@@ -378,10 +378,10 @@ export default function ServicesPage() {
           loop
           playsInline
           preload="none"
-          poster={media("web-development", "epco-hero.webp")}
+          poster={media("web-development", "epco-webdev-02.webp")}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-50"
         >
-          <source src={media("web-development", "epco-hero-1920.mp4")} type="video/mp4" />
+          <source src={media("web-development", "epco-showreel-02-1920.mp4")} type="video/mp4" />
         </video>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
         <div
@@ -393,7 +393,7 @@ export default function ServicesPage() {
           }}
         />
 
-        <div className="relative mx-auto max-w-[1400px]">
+        <div className="relative mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -418,8 +418,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ================= KPIS ================= */}
-      <section className="border-t border-white/10 px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
+      <section className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
           {KPIS.map((k, i) => (
             <div
               key={k.label}
@@ -438,8 +438,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ================= BENTO GRID ================= */}
-      <section id="stack" className="border-t border-white/10 px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
+      <section id="stack" className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+        <div className="mx-auto max-w-6xl">
           <SectionHead
             eyebrow="// THE ARSENAL"
             title="Four capabilities. One engine."
@@ -455,24 +455,24 @@ export default function ServicesPage() {
 
       {/* ================= DRAG CAROUSEL ================= */}
       <section className="border-t border-white/10 py-24 md:py-32">
-        <div className="mx-auto mb-4 max-w-[1400px] px-6 md:px-12">
+        <div className="mx-auto mb-4 max-w-6xl px-8 md:px-12">
           <SectionHead
             eyebrow="// DEPLOYMENT TRACK"
             title="Drag through the stack."
             body="Same four disciplines, sequenced the way a build actually runs."
           />
         </div>
-        <div className="pl-6 md:pl-12">
+        <div className="pl-8 md:pl-12">
           <WorkCarousel />
         </div>
-        <div className="mx-auto mt-6 max-w-[1400px] px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
+        <div className="mx-auto mt-6 max-w-6xl px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
           Drag →
         </div>
       </section>
 
       {/* ================= SHOWREEL ================= */}
-      <section className="border-t border-white/10 px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
+      <section className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+        <div className="mx-auto max-w-6xl">
           <SectionHead
             eyebrow="// ASSET PIPELINE"
             title="See the engine in action."
@@ -490,7 +490,7 @@ export default function ServicesPage() {
               loop
               playsInline
               preload="none"
-              poster={media("web-development", "epco-hero.webp")}
+              poster={media("web-development", "epco-webdev-02.webp")}
               className="absolute inset-0 h-full w-full object-cover"
             >
               <source src={media("web-development", "epco-showreel-02-1920.mp4")} type="video/mp4" />
@@ -515,8 +515,8 @@ export default function ServicesPage() {
       <KineticFinale />
 
       {/* ================= CTA ================= */}
-      <section id="contact" className="border-t border-white/10 px-6 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-[1400px]">
+      <section id="contact" className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+        <div className="mx-auto max-w-6xl">
           <div className="rounded-[18px] border border-white/10 bg-[#14171c] p-10 md:p-16">
             <Eyebrow>// SECURE UPLINK</Eyebrow>
             <h2 className="mt-5 max-w-[18ch] text-[clamp(1.9rem,4.4vw,3.4rem)] font-extrabold leading-[0.96] tracking-[-0.04em]">
