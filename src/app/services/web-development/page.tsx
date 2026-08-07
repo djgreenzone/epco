@@ -378,10 +378,10 @@ export default function ServicesPage() {
           loop
           playsInline
           preload="none"
-          poster={media("web-development", "epco-webdev-02.webp")}
+          poster={media("web-development", "epco-hero-earth.webp")}
           className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-50"
         >
-          <source src={media("web-development", "epco-showreel-02-1920.mp4")} type="video/mp4" />
+          <source src={media("web-development", "epco-hero-earth-1920.mp4")} type="video/mp4" />
         </video>
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
         <div
