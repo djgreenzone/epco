@@ -378,12 +378,12 @@ export default function ServicesPage() {
           loop
           playsInline
           preload="none"
-          poster={media("web-development", "epco-webdev-01.webp")}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.28]"
+          poster={media("web-development", "epco-hero.webp")}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-50"
         >
-          <source src={media("web-development", "epco-webdev-01-1280.mp4")} type="video/mp4" />
+          <source src={media("web-development", "epco-hero-1920.mp4")} type="video/mp4" />
         </video>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/85 to-black" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
         <div
           aria-hidden
           className="pointer-events-none absolute -top-1/4 left-1/2 h-[70vh] w-[120vw] -translate-x-1/2 rounded-full opacity-40 blur-[120px]"
@@ -490,7 +490,7 @@ export default function ServicesPage() {
               loop
               playsInline
               preload="none"
-              poster={media("web-development", "epco-webdev-01.webp")}
+              poster={media("web-development", "epco-hero.webp")}
               className="absolute inset-0 h-full w-full object-cover"
             >
               <source src={media("web-development", "epco-showreel-02-1920.mp4")} type="video/mp4" />
