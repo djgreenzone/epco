@@ -407,9 +407,9 @@ export default function ServicesClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.3, 0.8, 0.3, 1] }}
           >
-            <h1 className="mx-auto max-w-[22ch] text-center text-[clamp(1.5rem,4.2vw,3.75rem)] font-black leading-[1.05] tracking-[-0.035em]">
-              We don&apos;t build websites. We engineer{" "}
-              <span className={GRADIENT_TEXT}>digital phenomena.</span>
+            <h1 className="mx-auto max-w-[30ch] text-center text-[clamp(1.5rem,4.2vw,3.75rem)] font-black leading-[1.05] tracking-[-0.035em]">
+              We don&apos;t build websites. We design{" "}
+              <span className={GRADIENT_TEXT}>digital experiences</span> for your customer.
             </h1>
           </motion.div>
 
