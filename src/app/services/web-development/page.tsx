@@ -399,20 +399,10 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.3, 0.8, 0.3, 1] }}
-          >
             <Eyebrow>// OUR ARSENAL</Eyebrow>
-            <h1 className="mt-6 max-w-[16ch] text-[clamp(2.8rem,8.4vw,7.5rem)] font-black leading-[0.93] tracking-[-0.045em]">
+            <h1 className="mx-auto max-w-[22ch] text-center text-[clamp(1.5rem,4.2vw,3.75rem)] font-black leading-[1.05] tracking-[-0.035em]">
               We don&apos;t build websites. We engineer{" "}
               <span className={GRADIENT_TEXT}>digital phenomena.</span>
-            </h1>
-            <p className="mt-8 max-w-[56ch] text-[1.05rem] leading-relaxed text-gray-400">
-              Custom web platforms, mobile applications, and AI integrations designed for one
-              purpose: unreasonable ROI. Skip the bloated agencies and build infrastructure that
-              scales.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <SwapButton label="Deploy a Project" href="#contact" />
-              <SwapButton label="View the Stack" variant="ghost" href="#stack" />
             </div>
           </motion.div>
 
