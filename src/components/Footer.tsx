@@ -22,7 +22,7 @@ export default function Footer() {
               <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Navigation</h4>
               <ul className="text-gray-500 text-sm space-y-4">
                 <li><a href="/" className="hover:text-[#00f2ff] transition-colors">Home</a></li>
-                <li><a href="/Web Development" className="hover:text-[#00f2ff] transition-colors">Services</a></li>
+                <li><a href="/services/web-development" className="hover:text-[#00f2ff] transition-colors">Services</a></li>
                 <li><a href="/#booking-terminal" className="hover:text-[#00f2ff] transition-colors">Contact</a></li>
               </ul>
             </div>
