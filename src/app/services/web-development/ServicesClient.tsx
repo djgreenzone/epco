@@ -323,7 +323,7 @@ function KineticFinale() {
   });
 
   return (
-    <section ref={ref} className="px-6 py-32 md:px-12 md:py-48">
+    <section ref={ref} className="px-8 py-32 md:px-12 md:py-48">
       <h2 className="mx-auto max-w-[16ch] text-center text-[clamp(2.4rem,9vw,7rem)] font-black leading-[0.92] tracking-[-0.045em]">
         {FINALE.map((f, i) => (
           <KineticWord
@@ -473,7 +473,7 @@ export default function ServicesClient() {
         <div className="pl-8 md:pl-12">
           <StackCarousel />
         </div>
-        <div className="mx-auto mt-6 max-w-6xl px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
+        <div className="mx-auto mt-6 max-w-6xl px-8 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
           Drag →
 
       {/* ================= PIPELINE ================= */}

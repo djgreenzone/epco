@@ -42,8 +42,8 @@ function Node({ phase, i }: { phase: Phase; i: number }) {
           </div>
           <span className="font-mono text-[11px] tracking-[0.14em] text-white/25">{phase.n}</span>
         </div>
-        <h3 className="mb-2 font-sans text-xl font-bold tracking-tight text-white">{phase.title}</h3>
-        <p className="font-sans text-[0.9rem] normal-case leading-relaxed text-gray-400">{phase.body}</p>
+        <h3 style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }} className="mb-2 text-xl font-bold tracking-tight text-white">{phase.title}</h3>
+        <p style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif", letterSpacing: "normal" }} className="text-[0.9rem] leading-relaxed text-gray-400">{phase.body}</p>
       </div>
     </motion.div>
   );
@@ -69,10 +69,11 @@ export default function PhasePipeline() {
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-14 md:mb-20">
           <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-[#00f2ff]">{"// THE PIPELINE"}</span>
-          <h2 className="mt-5 max-w-[17ch] font-sans text-[clamp(2rem,5.2vw,4rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white">
+          <h2 style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif", textTransform: "none" }}
+            className="mt-5 max-w-[17ch] text-[clamp(2rem,5.2vw,4rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white">
             Four phases. One outcome.
           </h2>
-          <p className="mt-5 max-w-[54ch] font-sans normal-case text-gray-400">
+          <p style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif", letterSpacing: "normal" }} className="mt-5 max-w-[54ch] text-gray-400">
             Every build runs the same route. No handoffs, no surprises.
           </p>
         </div>
