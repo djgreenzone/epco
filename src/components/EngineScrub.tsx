@@ -13,27 +13,23 @@ export default function EngineScrub() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const frames = useRef<HTMLImageElement[]>([]);
   const [ready, setReady] = useState(false);
-  const [loaded, setLoaded] = useState(0);
+  const [done, setDone] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: section,
     offset: ["start start", "end end"],
   });
 
-  // preload every frame before enabling the scrub
   useEffect(() => {
     let alive = true;
-    let done = 0;
+    let d = 0;
     const imgs: HTMLImageElement[] = [];
+    const tick = () => { d += 1; setDone(d); if (d === COUNT) setReady(true); };
     for (let i = 1; i <= COUNT; i++) {
       const img = new Image();
       img.src = url(i);
-      img.onload = img.onerror = () => {
-        if (!alive) return;
-        done += 1;
-        setLoaded(done);
-        if (done === COUNT) setReady(true);
-      };
+      img.onload = () => alive && tick();
+      img.onerror = () => alive && tick();
       imgs.push(img);
     }
     frames.current = imgs;
@@ -43,20 +39,18 @@ export default function EngineScrub() {
   const draw = (index: number) => {
     const c = canvas.current;
     const img = frames.current[index];
-    if (!c || !img || !img.width) return;
+    if (!c || !img || !img.naturalWidth) return;
     const ctx = c.getContext("2d");
     if (!ctx) return;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    if (c.width !== c.clientWidth * dpr) {
-      c.width = c.clientWidth * dpr;
-      c.height = c.clientHeight * dpr;
-    }
-    // cover fit
-    const s = Math.max(c.width / img.width, c.height / img.height);
-    const w = img.width * s;
-    const h = img.height * s;
+    const w = Math.round(c.clientWidth * dpr);
+    const h = Math.round(c.clientHeight * dpr);
+    if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
+    const s = Math.max(c.width / img.naturalWidth, c.height / img.naturalHeight);
+    const dw = img.naturalWidth * s;
+    const dh = img.naturalHeight * s;
     ctx.clearRect(0, 0, c.width, c.height);
-    ctx.drawImage(img, (c.width - w) / 2, (c.height - h) / 2, w, h);
+    ctx.drawImage(img, (c.width - dw) / 2, (c.height - dh) / 2, dw, dh);
   };
 
   useEffect(() => { if (ready) draw(0); }, [ready]);
@@ -68,41 +62,28 @@ export default function EngineScrub() {
   });
 
   useEffect(() => {
-    const onResize = () => ready && draw(0);
+    const onResize = () => { if (ready) draw(0); };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, [ready]);
 
   return (
-    // tall track gives the scrub its runway; the inner panel pins
-    <section ref={section} className="relative h-[320vh]">
-      <div className="sticky top-0 flex h-screen items-center px-8 md:px-12">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="mb-8">
-            <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-[#00f2ff]">
-              {"// ASSET PIPELINE"}
-            </span>
-            <h2
-              style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }}
-              className="mt-4 max-w-[17ch] text-[clamp(1.8rem,4.2vw,3.2rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white"
-            >
-              See the engine in action.
-            </h2>
-          </div>
+    <section ref={section} className="relative h-[340vh] bg-black">
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        <canvas ref={canvas} className="absolute inset-0 block h-full w-full" />
 
-          <div className="relative aspect-video overflow-hidden rounded-[18px] border border-white/10 bg-[#14171c]">
-            <canvas ref={canvas} className="h-full w-full" />
-            {!ready && (
-              <div className="absolute inset-0 grid place-items-center">
-                <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500">
-                  Loading {Math.round((loaded / COUNT) * 100)}%
-                </span>
-              </div>
-            )}
-          </div>
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-black/40" />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[15vh] bg-gradient-to-b from-black to-transparent" />
 
-          <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500">
-            Scroll to scrub &darr;
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8 text-center">
+          <h2
+            style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }}
+            className="max-w-[18ch] text-[clamp(2rem,6vw,4.5rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.85)]"
+          >
+            See the engine in action.
+          </h2>
+          <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-400">
+            {ready ? "Scroll to scrub" : `Loading ${Math.round((done / COUNT) * 100)}%`}
           </p>
         </div>
       </div>

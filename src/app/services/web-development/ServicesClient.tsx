@@ -419,13 +419,26 @@ export default function ServicesClient() {
       </section>
 
       {/* ================= KPIS ================= */}
-      <section className="px-8 py-24 md:px-12 md:py-32">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
+      <section className="relative px-8 py-24 md:px-12 md:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-55 blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(34% 44% at 18% 40%, rgba(0,242,255,0.17), transparent 70%), radial-gradient(34% 44% at 52% 30%, rgba(255,0,234,0.14), transparent 70%), radial-gradient(32% 42% at 84% 46%, rgba(255,204,0,0.11), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-3">
           {KPIS.map((k, i) => (
             <div
               key={k.label}
-              className={i > 0 ? "md:border-l md:border-white/10 md:pl-12" : "md:pr-12"}
+              className="group relative overflow-hidden rounded-[18px] border border-white/[0.12] bg-white/[0.04] p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:bg-white/[0.07] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_30px_rgba(0,242,255,0.18)] md:p-10"
             >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent"
+              />
+              <div className="relative">
               <div className="text-[clamp(2rem,3.6vw,3.2rem)] font-black leading-none tracking-[-0.05em]">
                 <Counter to={k.to} suffix={k.suffix} />
               </div>
@@ -433,6 +446,7 @@ export default function ServicesClient() {
               <p className="mt-2 max-w-[32ch] text-[0.93rem] leading-relaxed text-gray-400">
                 {k.body}
               </p>
+              </div>
             </div>
           ))}
         </div>
