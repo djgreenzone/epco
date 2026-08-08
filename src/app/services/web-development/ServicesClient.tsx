@@ -14,6 +14,7 @@ import HeroGallery from "@/components/HeroGallery";
 import StackCarousel from "@/components/StackCarousel";
 import PhenomenonCTA from "@/components/PhenomenonCTA";
 import PhasePipeline from "@/components/PhasePipeline";
+import EngineScrub from "@/components/EngineScrub";
 import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
@@ -481,46 +482,8 @@ export default function ServicesClient() {
         </div>
       </section>
 
-      {/* ================= SHOWREEL ================= */}
-      <section className="px-8 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <SectionHead
-            eyebrow="// ASSET PIPELINE"
-            title="See the engine in action."
-            body="A look under the hood at our global development capabilities."
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.3, 0.8, 0.3, 1] }}
-            className="group relative aspect-video overflow-hidden rounded-[18px] border border-white/10 bg-[#14171c] transition-all duration-300 hover:border-[#00f2ff]/50 hover:shadow-[0_0_25px_rgba(0,242,255,0.15)]"
-          >
-            <video
-              muted
-              loop
-              playsInline
-              preload="none"
-              poster={media("web-development", "epco-webdev-02.webp")}
-              className="absolute inset-0 h-full w-full object-cover"
-            >
-              <source src={media("web-development", "epco-showreel-02-1920.mp4")} type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 grid place-items-center bg-black/30">
-              <div
-                className={`grid h-20 w-20 place-items-center rounded-full transition-transform duration-500 group-hover:scale-110 md:h-24 md:w-24 ${GRADIENT}`}
-              >
-                <svg viewBox="0 0 24 24" className="ml-1 h-7 w-7 fill-black">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-            <span className="absolute bottom-5 left-6 font-mono text-[11px] uppercase tracking-[0.14em] text-gray-400">
-              EPCO Showreel — Preview
-            </span>
-          </motion.div>
-        </div>
-      </section>
+      {/* ================= ENGINE SCRUB ================= */}
+      <EngineScrub />
 
       {/* ================= KINETIC FINALE ================= */}
       <KineticFinale />
