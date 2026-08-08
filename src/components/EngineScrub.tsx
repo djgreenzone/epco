@@ -87,13 +87,21 @@ export default function EngineScrub() {
           <canvas ref={canvas} className="absolute inset-0 block h-full w-full" />
         )}
 
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-black/40" />
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[15vh] bg-gradient-to-b from-black to-transparent" />
+        <div aria-hidden className={`pointer-events-none absolute inset-0 ${mobile ? "bg-black/65" : "bg-black/40"}`} />
+        <div aria-hidden className={`pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-black to-transparent ${mobile ? "h-[26vh]" : "h-[15vh]"}`} />
+
+        {mobile && (
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[26vh] bg-gradient-to-t from-black to-transparent" />
+        )}
+
+        {mobile && (
+          <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[26vh] bg-gradient-to-t from-black to-transparent" />
+        )}
 
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8 text-center">
           <h2
             style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }}
-            className="max-w-[18ch] text-[clamp(2rem,6vw,4.5rem)] font-extrabold leading-[0.95] tracking-[-0.04em] text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.85)]"
+            className="max-w-[10ch] text-[clamp(2.6rem,11vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.04em] text-white drop-shadow-[0_8px_30px_rgba(0,0,0,0.85)] md:max-w-[18ch]"
           >
             See the engine in action.
           </h2>
