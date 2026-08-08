@@ -124,7 +124,7 @@ function Counter({
   }, [inView, to, duration, reduce]);
 
   return (
-    <span ref={ref} className="text-[#00f2ff] tabular-nums">
+    <span ref={ref} className={`${GRADIENT_TEXT} tabular-nums`}>
       {value}
       {suffix}
     </span>
