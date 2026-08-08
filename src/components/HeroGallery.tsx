@@ -28,18 +28,18 @@ type Tile = {
 };
 
 const LEFT_TOP: Tile = {
-  id: "saef",
+  id: "epco-saef",
   kind: "video",
-  asset: "epco-webdev-02",
+  asset: "epco-saef",
   client: "SAëF",
   verified: true,
   href: "https://saef.app",
 };
 
 const LEFT_BOTTOM: Tile = {
-  id: "island-city",
+  id: "epco-islandcity",
   kind: "video",
-  asset: "epco-webdev-01",
+  asset: "epco-islandcity",
   client: "Island City Media",
   verified: true,
   href: "https://islandcitymediagroup.com",
@@ -48,26 +48,25 @@ const LEFT_BOTTOM: Tile = {
 const CENTER: Tile = {
   id: "montage",
   kind: "video",
-  asset: "epco-showreel-02-1920",
-  exact: true,
+  asset: "epco-montage",
   client: "EPCO Showreel",
   sublabel: "Preview",
 };
 
 const RIGHT_TOP: Tile = {
-  id: "slot-03",
-  kind: "image",
-  asset: "epco-hero-earth",
-  client: "Client name",
+  id: "epco-infortum",
+  kind: "video",
+  asset: "epco-infortum",
+  client: "Infortum",
   verified: true,
   href: "https://example.com",
 };
 
 const RIGHT_BOTTOM: Tile = {
-  id: "slot-04",
-  kind: "image",
-  asset: "epco-hero-earth",
-  client: "Client name",
+  id: "epco-armsezzz",
+  kind: "video",
+  asset: "epco-armsezzz",
+  client: "ArmsEzzz",
   verified: true,
   href: "https://example.com",
 };
@@ -153,8 +152,8 @@ function Media({ tile }: { tile: Tile }) {
     else v.pause();
   }, [visible]);
 
-  const posterName = tile.exact ? "epco-hero-earth" : tile.asset;
-  const videoName = tile.exact ? `${tile.asset}.mp4` : `${tile.asset}-1280.mp4`;
+  const posterName = tile.asset;
+  const videoName = tile.exact ? `${tile.asset}.mp4` : `${tile.asset}-${["epco-saef","epco-armsezzz"].includes(tile.asset) ? 1024 : 1280}.mp4`;
 
   const shared =
     "absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]";
