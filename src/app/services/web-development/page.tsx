@@ -10,6 +10,7 @@ import {
   type MotionValue,
 } from "framer-motion";
 import WorkCarousel from "@/components/WorkCarousel";
+import HeroGallery from "@/components/HeroGallery";
 import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
@@ -379,7 +380,7 @@ export default function ServicesPage() {
           playsInline
           preload="none"
           poster={media("web-development", "epco-hero-earth.webp")}
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-50"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.35]"
         >
           <source src={media("web-development", "epco-hero-earth-1920.mp4")} type="video/mp4" />
         </video>
@@ -414,6 +415,8 @@ export default function ServicesPage() {
               <SwapButton label="View the Stack" variant="ghost" href="#stack" />
             </div>
           </motion.div>
+
+          <HeroGallery />
         </div>
       </section>
 
