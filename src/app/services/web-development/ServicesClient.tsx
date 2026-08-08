@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import WorkCarousel from "@/components/WorkCarousel";
 import HeroGallery from "@/components/HeroGallery";
+import StackCarousel from "@/components/StackCarousel";
 import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
@@ -119,7 +120,7 @@ function Counter({
   }, [inView, to, duration, reduce]);
 
   return (
-    <span ref={ref} className={`${GRADIENT_TEXT} tabular-nums`}>
+    <span ref={ref} className="text-[#00f2ff] tabular-nums">
       {value}
       {suffix}
     </span>
@@ -316,7 +317,7 @@ function KineticFinale() {
   });
 
   return (
-    <section ref={ref} className="border-t border-white/10 px-6 py-32 md:px-12 md:py-48">
+    <section ref={ref} className="px-6 py-32 md:px-12 md:py-48">
       <h2 className="mx-auto max-w-[16ch] text-center text-[clamp(2.4rem,9vw,7rem)] font-black leading-[0.92] tracking-[-0.045em]">
         {FINALE.map((f, i) => (
           <KineticWord
@@ -411,14 +412,14 @@ export default function ServicesClient() {
       </section>
 
       {/* ================= KPIS ================= */}
-      <section className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+      <section className="px-8 py-24 md:px-12 md:py-32">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
           {KPIS.map((k, i) => (
             <div
               key={k.label}
               className={i > 0 ? "md:border-l md:border-white/10 md:pl-12" : "md:pr-12"}
             >
-              <div className="text-[clamp(3rem,6vw,5.2rem)] font-black leading-none tracking-[-0.05em]">
+              <div className="text-[clamp(2rem,3.6vw,3.2rem)] font-black leading-none tracking-[-0.05em]">
                 <Counter to={k.to} suffix={k.suffix} />
               </div>
               <div className="mt-4 text-lg font-semibold text-white">{k.label}</div>
@@ -431,7 +432,7 @@ export default function ServicesClient() {
       </section>
 
       {/* ================= BENTO GRID ================= */}
-      <section id="stack" className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+      <section id="stack" className="px-8 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-6xl">
           <SectionHead
             eyebrow="// THE ARSENAL"
@@ -447,16 +448,16 @@ export default function ServicesClient() {
       </section>
 
       {/* ================= DRAG CAROUSEL ================= */}
-      <section className="border-t border-white/10 py-24 md:py-32">
+      <section className="py-24 md:py-32">
         <div className="mx-auto mb-4 max-w-6xl px-8 md:px-12">
           <SectionHead
-            eyebrow="// DEPLOYMENT TRACK"
-            title="Drag through the stack."
-            body="Same four disciplines, sequenced the way a build actually runs."
+            eyebrow="// THE FULL STACK"
+            title="Everything a site needs. One team."
+            body="Nine disciplines most agencies subcontract out. We run all of them in house."
           />
         </div>
         <div className="pl-8 md:pl-12">
-          <WorkCarousel />
+          <StackCarousel />
         </div>
         <div className="mx-auto mt-6 max-w-6xl px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
           Drag →
@@ -464,7 +465,7 @@ export default function ServicesClient() {
       </section>
 
       {/* ================= SHOWREEL ================= */}
-      <section className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+      <section className="px-8 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-6xl">
           <SectionHead
             eyebrow="// ASSET PIPELINE"
@@ -508,7 +509,7 @@ export default function ServicesClient() {
       <KineticFinale />
 
       {/* ================= CTA ================= */}
-      <section id="contact" className="border-t border-white/10 px-8 py-24 md:px-12 md:py-32">
+      <section id="contact" className="px-8 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="rounded-[18px] border border-white/10 bg-[#14171c] p-10 md:p-16">
             <Eyebrow>// SECURE UPLINK</Eyebrow>
