@@ -62,7 +62,7 @@ export default function PhenomenonCTA() {
             <p className="mt-5 max-w-[46ch] leading-relaxed text-gray-300">
               Thirty minutes. Bring the sketch, the sample, or the spreadsheet &mdash; whatever stage you&apos;re at.
             </p>
-            <a href="#booking" className="group/btn mt-9 inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00] px-7 py-4 text-[15px] font-semibold leading-none tracking-tight text-black transition-transform duration-300 hover:-translate-y-0.5">
+            <a href="/#booking-terminal" className="group/btn mt-9 inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00] px-7 py-4 text-[15px] font-semibold leading-none tracking-tight text-black transition-transform duration-300 hover:-translate-y-0.5">
               <span className="relative block h-[1.15em] overflow-hidden">
                 <span className="block transition-transform duration-[420ms] ease-[cubic-bezier(0.6,0,0.2,1)] group-hover/btn:-translate-y-full">
                   <span className="block">Deploy a Project</span>
