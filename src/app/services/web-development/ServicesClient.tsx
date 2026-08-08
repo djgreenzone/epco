@@ -12,6 +12,8 @@ import {
 import WorkCarousel from "@/components/WorkCarousel";
 import HeroGallery from "@/components/HeroGallery";
 import StackCarousel from "@/components/StackCarousel";
+import PhenomenonCTA from "@/components/PhenomenonCTA";
+import PhasePipeline from "@/components/PhasePipeline";
 import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
@@ -22,9 +24,10 @@ const GRADIENT = "bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]";
 const GRADIENT_TEXT = `${GRADIENT} text-transparent bg-clip-text`;
 
 const CARD_BASE =
-  "group relative bg-[#14171c] border border-white/10 rounded-[18px] p-8 md:p-10 " +
-  "transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 " +
-  "hover:shadow-[0_0_25px_rgba(0,242,255,0.15)]";
+  "group relative overflow-hidden rounded-[18px] border border-white/[0.12] bg-white/[0.04] p-8 md:p-10 " +
+  "shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl " +
+  "transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:bg-white/[0.07] " +
+  "hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_30px_rgba(0,242,255,0.18)]";
 
 /* ------------------------------------------------------------------ */
 /*  SWAP HOVER BUTTON                                                  */
@@ -191,7 +194,7 @@ const SERVICES: Service[] = [
 
 function ServiceIcon({ d }: { d: string }) {
   return (
-    <div className="mb-12 flex h-12 w-12 items-center justify-center rounded-[12px] border border-white/10 bg-white/[0.03] transition-colors duration-300 group-hover:border-[#00f2ff]/40">
+    <div className="mb-12 flex h-12 w-12 items-center justify-center rounded-[12px] border border-white/10 bg-white/[0.06] transition-colors duration-300 group-hover:border-[#00f2ff]/40">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -209,12 +212,15 @@ function ServiceIcon({ d }: { d: string }) {
 function BentoCard({ s }: { s: Service }) {
   return (
     <div className={`${CARD_BASE} ${s.wide ? "md:col-span-2" : ""}`}>
-      <ServiceIcon d={s.glyph} />
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[18px] bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
+      <div className="relative">
+        <ServiceIcon d={s.glyph} />
       <span className="mb-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-[#00f2ff]">
         {s.eyebrow}
       </span>
       <h3 className="mb-3 text-2xl font-bold tracking-tight text-white">{s.title}</h3>
       <p className="max-w-[52ch] text-[0.95rem] leading-relaxed text-gray-400">{s.body}</p>
+      </div>
     </div>
   );
 }
@@ -432,8 +438,16 @@ export default function ServicesClient() {
       </section>
 
       {/* ================= BENTO GRID ================= */}
-      <section id="stack" className="px-8 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-6xl">
+      <section id="stack" className="relative px-8 py-24 md:px-12 md:py-32">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-60 blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(38% 46% at 20% 30%, rgba(0,242,255,0.18), transparent 70%), radial-gradient(38% 46% at 72% 24%, rgba(255,0,234,0.15), transparent 70%), radial-gradient(34% 42% at 46% 82%, rgba(255,204,0,0.11), transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-6xl">
           <SectionHead
             eyebrow="// THE ARSENAL"
             title="Four capabilities. One engine."
@@ -461,6 +475,9 @@ export default function ServicesClient() {
         </div>
         <div className="mx-auto mt-6 max-w-6xl px-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 md:px-12">
           Drag →
+
+      {/* ================= PIPELINE ================= */}
+      <PhasePipeline />
         </div>
       </section>
 
@@ -509,23 +526,7 @@ export default function ServicesClient() {
       <KineticFinale />
 
       {/* ================= CTA ================= */}
-      <section id="contact" className="px-8 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-6xl">
-          <div className="rounded-[18px] border border-white/10 bg-[#14171c] p-10 md:p-16">
-            <Eyebrow>// SECURE UPLINK</Eyebrow>
-            <h2 className="mt-5 max-w-[18ch] text-[clamp(1.9rem,4.4vw,3.4rem)] font-extrabold leading-[0.96] tracking-[-0.04em]">
-              Start the phenomenon.
-            </h2>
-            <p className="mt-5 max-w-[46ch] text-gray-400">
-              Thirty minutes. Bring the sketch, the sample, or the spreadsheet — whatever stage
-              you&apos;re at.
-            </p>
-            <div className="mt-9">
-              <SwapButton label="Deploy a Project" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <PhenomenonCTA />
     </main>
   );
 }

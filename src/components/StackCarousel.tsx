@@ -39,9 +39,10 @@ const SPEED = 34; // px per second
 
 function StackCard({ item }: { item: Item }) {
   return (
-    <div className="group relative flex w-[280px] shrink-0 select-none flex-col rounded-[18px] border border-white/10 bg-[#14171c] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:shadow-[0_0_25px_rgba(0,242,255,0.15)] md:w-[360px] md:p-10">
-      <div className="mb-12 flex items-start justify-between">
-        <div className="grid h-12 w-12 place-items-center rounded-[12px] border border-white/10 bg-white/[0.03] transition-colors duration-300 group-hover:border-[#00f2ff]/40">
+    <div className="group relative flex w-[280px] shrink-0 select-none flex-col overflow-hidden rounded-[18px] border border-white/[0.12] bg-white/[0.04] p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:bg-white/[0.07] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_30px_rgba(0,242,255,0.18)] md:w-[360px] md:p-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[18px] bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
+      <div className="relative mb-12 flex items-start justify-between">
+        <div className="grid h-12 w-12 place-items-center rounded-[12px] border border-white/10 bg-white/[0.06] transition-colors duration-300 group-hover:border-[#00f2ff]/40">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6}
                strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-[#00f2ff]">
             <path d={item.glyph} />
@@ -49,9 +50,9 @@ function StackCard({ item }: { item: Item }) {
         </div>
         <span className="font-mono text-[11px] tracking-[0.14em] text-white/20">{item.n}</span>
       </div>
-      <span className="mb-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-[#00f2ff]">{item.eyebrow}</span>
-      <h3 className="mb-3 text-2xl font-bold tracking-tight text-white">{item.title}</h3>
-      <p className="text-[0.95rem] leading-relaxed text-gray-400">{item.body}</p>
+      <span className="relative mb-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-[#00f2ff]">{item.eyebrow}</span>
+      <h3 className="relative mb-3 text-2xl font-bold tracking-tight text-white">{item.title}</h3>
+      <p className="relative text-[0.95rem] leading-relaxed text-gray-400">{item.body}</p>
     </div>
   );
 }
@@ -83,10 +84,18 @@ export default function StackCarousel() {
 
   return (
     <div
-      className="overflow-x-hidden overflow-y-visible py-4"
+      className="relative overflow-x-hidden overflow-y-visible py-4"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-70 blur-[90px]"
+        style={{
+          background:
+            "radial-gradient(40% 60% at 18% 50%, rgba(0,242,255,0.16), transparent 70%), radial-gradient(40% 60% at 58% 40%, rgba(255,0,234,0.13), transparent 70%), radial-gradient(35% 55% at 88% 60%, rgba(255,204,0,0.10), transparent 70%)",
+        }}
+      />
       <motion.div
         ref={track}
         style={{ x }}

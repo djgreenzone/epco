@@ -60,7 +60,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="bg-[#0b0e14] text-white min-h-full flex flex-col font-sans">
+      <body className="bg-black text-white min-h-full flex flex-col font-sans">
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />

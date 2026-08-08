@@ -231,7 +231,7 @@ export default function HeroGallery() {
 
         {/* CENTER — montage. Order pulls it above the columns on mobile. */}
         <div className="order-first sm:col-span-2 md:order-none md:col-span-1">
-          <TileCard tile={CENTER} className="aspect-[4/5] md:aspect-auto md:h-full" />
+          <TileCard tile={CENTER} className="aspect-[4/5] md:aspect-auto md:h-[calc(100%+2.5rem)] md:-translate-y-5" />
         </div>
 
         {/* RIGHT — short, then tall (mirrors the left) */}
