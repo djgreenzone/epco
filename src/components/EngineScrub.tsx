@@ -20,7 +20,14 @@ export default function EngineScrub() {
     offset: ["start start", "end end"],
   });
 
+  const [mobile, setMobile] = useState(false);
+
   useEffect(() => {
+    setMobile(window.matchMedia("(max-width: 768px)").matches);
+  }, []);
+
+  useEffect(() => {
+    if (mobile) return;
     let alive = true;
     let d = 0;
     const imgs: HTMLImageElement[] = [];
@@ -34,7 +41,7 @@ export default function EngineScrub() {
     }
     frames.current = imgs;
     return () => { alive = false; };
-  }, []);
+  }, [mobile]);
 
   const draw = (index: number) => {
     const c = canvas.current;
@@ -68,9 +75,17 @@ export default function EngineScrub() {
   }, [ready]);
 
   return (
-    <section ref={section} className="relative h-[340vh] bg-black">
+    <section ref={section} className={`relative bg-black ${mobile ? "h-screen" : "h-[340vh]"}`}>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <canvas ref={canvas} className="absolute inset-0 block h-full w-full" />
+        {mobile ? (
+          <img
+            src={`${DIR}/epco-seq-048.webp`}
+            alt=""
+            className="absolute inset-0 block h-full w-full object-cover"
+          />
+        ) : (
+          <canvas ref={canvas} className="absolute inset-0 block h-full w-full" />
+        )}
 
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-black/40" />
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[15vh] bg-gradient-to-b from-black to-transparent" />
@@ -83,7 +98,7 @@ export default function EngineScrub() {
             See the engine in action.
           </h2>
           <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-400">
-            {ready ? "Scroll to scrub" : `Loading ${Math.round((done / COUNT) * 100)}%`}
+            {mobile ? "" : ready ? "Scroll to scrub" : `Loading ${Math.round((done / COUNT) * 100)}%`}
           </p>
         </div>
       </div>
