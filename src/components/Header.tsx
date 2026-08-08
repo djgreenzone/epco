@@ -10,7 +10,7 @@ export default function Header() {
         </a>
         
         <div className="flex items-center gap-6">
-          <a href="/services" className="text-sm font-mono uppercase text-gray-400 hover:text-[#00f2ff] transition-colors">
+          <a href="/services/web-development" className="text-sm font-mono uppercase text-gray-400 hover:text-[#00f2ff] transition-colors">
             Web Development
           </a>
           <a href="/#booking-terminal" className="text-sm font-mono uppercase bg-white text-black px-6 py-2 rounded-xl hover:opacity-80 transition-opacity font-bold">
