@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="w-full bg-[#080a0f] py-20 border-t border-gray-900">
       <div className="max-w-6xl mx-auto px-8 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
-          
+
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img src="/epco-mark.png" alt="EPCO Logo" className="w-10 h-10 object-contain" />
@@ -15,9 +15,9 @@ export default function Footer() {
               Engineering consumer phenomena since 1992. <br /> Built for the relentless.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-16">
-            
+
             <div>
               <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Navigation</h4>
               <ul className="text-gray-500 text-sm space-y-4">
@@ -26,12 +26,12 @@ export default function Footer() {
                 <li><a href="/#booking-terminal" className="hover:text-[#00f2ff] transition-colors">Contact</a></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-mono text-[10px] text-white uppercase tracking-widest mb-6">Legal</h4>
               <ul className="text-gray-500 text-sm space-y-4">
-                <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Privacy</a></li>
-                <li><a href="#" className="hover:text-[#ff00ea] transition-colors">Terms</a></li>
+                <li><a href="/legal/privacy" className="hover:text-[#ff00ea] transition-colors">Privacy</a></li>
+                <li><a href="/legal/terms" className="hover:text-[#ff00ea] transition-colors">Terms</a></li>
               </ul>
             </div>
 
