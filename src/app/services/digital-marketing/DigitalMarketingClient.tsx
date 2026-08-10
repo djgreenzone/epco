@@ -564,13 +564,27 @@ function BigTypeMoment() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   return (
-    <section ref={ref} className="px-8 py-32 md:px-12 md:py-48">
-      <motion.div style={{ opacity, y }} className="mx-auto max-w-5xl text-center">
+    <section ref={ref} className="relative overflow-hidden px-8 py-32 md:px-12 md:py-48">
+      {/* background traffic loop */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="none"
+        poster={media("digital-marketing", "traffic-bg.webp")}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75"
+      >
+        <source src={media("digital-marketing", "traffic-bg-1920.mp4")} type="video/mp4" />
+      </video>
+      {/* legibility scrim over the video */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-black/35" />
+      <motion.div style={{ opacity, y }} className="relative mx-auto max-w-5xl text-center">
         <h2 className="text-[clamp(2.4rem,8vw,6rem)] font-black leading-[0.95] tracking-[-0.045em]">
           Traffic is not the goal.{" "}
           <span className={GRADIENT_TEXT}>Revenue is.</span>
         </h2>
-        <p className="mx-auto mt-8 max-w-[48ch] text-lg leading-relaxed text-gray-400">
+        <p className="mx-auto mt-8 max-w-[48ch] text-lg leading-relaxed text-gray-300">
           Clicks, impressions, followers — vanity if they never convert. We build the system
           that turns attention into customers, and customers into compounding revenue.
         </p>
@@ -656,7 +670,7 @@ function MediaPanel({ s }: { s: Solution }) {
           loading="lazy"
           className="h-full w-full object-cover"
         />
-        {/* subtle brand tint + bottom scrim for legibility */}
+        {/* black gradient over the bottom third of the image */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
