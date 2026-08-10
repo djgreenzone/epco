@@ -24,6 +24,29 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Web Development",
+  name: TITLE,
+  description: DESCRIPTION,
+  url: URL,
+  provider: {
+    "@type": "Organization",
+    name: "EPCO",
+    url: "https://www.eddypham.company",
+  },
+  areaServed: "Worldwide",
+};
+
 export default function Page() {
-  return <ServicesClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <ServicesClient />
+    </>
+  );
 }
