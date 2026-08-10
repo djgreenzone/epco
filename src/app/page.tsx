@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase ONCE
@@ -73,7 +74,7 @@ export default function Home() {
           </p>
           <a 
             href="#booking-terminal" 
-            className="inline-flex justify-center items-center gap-3 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest px-8 py-5 rounded-lg hover:scale-[1.02] transition-all shadow-[0_0_30px_rgba(0,242,255,0.3)] mt-8"
+            className="inline-flex justify-center items-center gap-3 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest px-8 py-5 rounded-full hover:scale-[1.02] transition-all shadow-[0_0_30px_rgba(0,242,255,0.3)] mt-8"
           >
             Book a Strategy Call
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -144,8 +145,10 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="bg-[#14171c] border border-gray-800 rounded-3xl p-10 flex flex-col justify-center hover:border-transparent hover:shadow-[0_0_30px_#ff00ea66] transition-all group relative overflow-hidden text-white min-h-[300px] md:min-h-0">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00] opacity-5"></div>
+            <article className="group relative overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.04] p-10 flex flex-col justify-center shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:bg-white/[0.07] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_30px_rgba(0,242,255,0.18)] text-white min-h-[300px] md:min-h-0">
+              <div aria-hidden className="pointer-events-none absolute -inset-10 opacity-70 blur-[90px]"
+                style={{ background: "radial-gradient(45% 55% at 22% 20%, rgba(0,242,255,0.16), transparent 70%), radial-gradient(45% 55% at 82% 30%, rgba(255,0,234,0.15), transparent 70%), radial-gradient(50% 55% at 50% 88%, rgba(255,204,0,0.10), transparent 70%)" }} />
+              <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
               <div className="relative z-10">
                 <p className="font-mono text-xs text-gray-500 mb-4 tracking-wider">// THE PARTNERSHIP</p>
                 <h2 className="text-3xl font-heading font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Built for the Relentless.</h2>
@@ -188,6 +191,100 @@ export default function Home() {
           </div>
         </section>
 
+        {/* 5.5 THE PROCESS PIPELINE — four stages converging on one phenomenon */}
+        <section className="relative w-full px-8 py-32 md:px-12 text-white overflow-hidden">
+          <style>{`
+            @keyframes epco-pipe-flow { to { stroke-dashoffset: -220; } }
+            @keyframes epco-node-glow {
+              0%,100% { box-shadow: 0 0 0 0 rgba(0,242,255,0.35); }
+              50%     { box-shadow: 0 0 34px 6px rgba(0,242,255,0.18); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .epco-pipe-path, .epco-node { animation: none !important; }
+            }
+          `}</style>
+
+          <div aria-hidden className="pointer-events-none absolute inset-0 opacity-55 blur-[110px]"
+            style={{ background: "radial-gradient(36% 44% at 26% 26%, rgba(0,242,255,0.16), transparent 70%), radial-gradient(36% 44% at 74% 30%, rgba(255,0,234,0.13), transparent 70%), radial-gradient(32% 40% at 50% 86%, rgba(255,204,0,0.10), transparent 70%)" }} />
+
+          <div className="relative mx-auto max-w-6xl">
+            <div className="mb-14 md:mb-20">
+              <p className="font-mono text-xs text-[#00f2ff] mb-4 tracking-wider">// THE PROCESS</p>
+              <h2 className="text-4xl md:text-6xl font-heading font-bold leading-[0.95] tracking-tight max-w-[16ch]">
+                4 easy steps to launch your product
+              </h2>
+              <p className="mt-5 max-w-[60ch] text-gray-400 text-lg leading-relaxed">
+                EPCO provides end-to-end solutions for brands to launch consumer and digital products into the marketplace at scale.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { n: "01", title: "Design",     body: "Sketch to engineered CAD spec, built to exact tolerance.", glyph: "M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" },
+                { n: "02", title: "Prototype",  body: "Made real by hand, validated for performance and cost.", glyph: "M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3" },
+                { n: "03", title: "Production", body: "Tooled for repeatable manufacturing, packaged for retail.", glyph: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" },
+                { n: "04", title: "Launch",     body: "Into the market, built to scale.", glyph: "M12 3l7 18-7-4-7 4 7-18z" },
+              ].map((phase, i) => (
+                <motion.div
+                  key={phase.n}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.6, delay: i * 0.12, ease: [0.3, 0.8, 0.3, 1] }}
+                  className="group relative overflow-hidden rounded-[18px] border border-white/[0.12] bg-white/[0.04] p-7 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:bg-white/[0.07] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_30px_rgba(0,242,255,0.18)]"
+                >
+                  <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
+                  <div className="relative">
+                    <div className="mb-8 flex items-start justify-between">
+                      <div className="grid h-11 w-11 place-items-center rounded-[12px] border border-white/10 bg-white/[0.06] transition-colors duration-300 group-hover:border-[#00f2ff]/40">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-[22px] w-[22px] text-[#00f2ff]">
+                          <path d={phase.glyph} />
+                        </svg>
+                      </div>
+                      <span className="font-mono text-[11px] tracking-[0.14em] text-white/25">{phase.n}</span>
+                    </div>
+                    <h3 className="mb-2 text-xl font-heading font-bold tracking-tight text-white">{phase.title}</h3>
+                    <p className="text-[0.9rem] leading-relaxed text-gray-400">{phase.body}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* connectors — desktop only; the four columns converge on one point */}
+            <div className="hidden lg:block" aria-hidden>
+              <svg viewBox="0 0 1000 130" preserveAspectRatio="none" className="h-[130px] w-full">
+                <defs>
+                  <linearGradient id="epco_home_pipe" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#00f2ff" /><stop offset="0.5" stopColor="#ff00ea" /><stop offset="1" stopColor="#ffcc00" />
+                  </linearGradient>
+                </defs>
+                {[125, 375, 625, 875].map((x, i) => (
+                  <g key={x}>
+                    <path d={`M${x} 0 C ${x} 62, 500 46, 500 126`} stroke="url(#epco_home_pipe)" strokeWidth="1.5" fill="none" opacity="0.28" />
+                    <path className="epco-pipe-path" d={`M${x} 0 C ${x} 62, 500 46, 500 126`}
+                      stroke="url(#epco_home_pipe)" strokeWidth="2.5" fill="none" strokeLinecap="round"
+                      strokeDasharray="14 206"
+                      style={{ animation: `epco-pipe-flow 3.2s linear infinite`, animationDelay: `${i * 0.55}s` }} />
+                  </g>
+                ))}
+              </svg>
+            </div>
+
+            {/* phenomenon node */}
+            <div className="mt-10 flex justify-center lg:mt-0">
+              <a href="#booking-terminal"
+                className="epco-node group/b relative inline-flex items-center gap-3 rounded-full border border-white/[0.16] bg-white/[0.06] px-9 py-5 text-[17px] font-bold tracking-tight text-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00f2ff]/60"
+                style={{ animation: "epco-node-glow 3.4s ease-in-out infinite" }}>
+                <span className="h-2 w-2 rounded-full bg-[#00f2ff]" />
+                Your Phenomenon
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4} className="h-4 w-4 transition-transform duration-300 group-hover/b:translate-x-1 group-hover/b:-translate-y-1">
+                  <path d="M7 17L17 7M17 7H8M17 7v9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* 6. THE EPCO CRITERIA */}
         <section className="w-full py-32 text-white">
           <div className="max-w-6xl mx-auto px-8 md:px-12 flex flex-col xl:flex-row gap-20">
@@ -198,27 +295,26 @@ export default function Home() {
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed">To scale to eight figures, your product must meet strict transactional marketing rules.</p>
             </div>
-            <div className="w-full xl:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-8 h-fit">
-              <article className="bg-[#14171c] border border-gray-800 p-8 rounded-3xl hover:border-[#00f2ff80] transition-all">
-                <div className="font-mono text-3xl font-black mb-4 text-[#00f2ff]">01.</div>
-                <h3 className="text-xl font-heading font-bold mb-3">The 5-to-1 Markup</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Must sustain massive media buying from cost to retail.</p>
-              </article>
-              <article className="bg-[#14171c] border border-gray-800 p-8 rounded-3xl hover:border-[#00f2ff80] transition-all">
-                <div className="font-mono text-3xl font-black mb-4 text-[#00f2ff]">02.</div>
-                <h3 className="text-xl font-heading font-bold mb-3">Highly Demonstrable</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Immediate visual "sizzle" for TV or digital ads.</p>
-              </article>
-              <article className="bg-[#14171c] border border-gray-800 p-8 rounded-3xl hover:border-[#00f2ff80] transition-all">
-                <div className="font-mono text-3xl font-black mb-4 text-[#00f2ff]">03.</div>
-                <h3 className="text-xl font-heading font-bold mb-3">Mass-Market Appeal</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Does it solve an everyday problem for the masses?</p>
-              </article>
-              <article className="bg-[#14171c] border border-gray-800 p-8 rounded-3xl hover:border-[#00f2ff80] transition-all">
-                <div className="font-mono text-3xl font-black mb-4 text-[#00f2ff]">04.</div>
-                <h3 className="text-xl font-heading font-bold mb-3">The Proof</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">Clinical studies or strong testimonials required.</p>
-              </article>
+            <div className="w-full xl:w-3/5 relative">
+              <div aria-hidden className="pointer-events-none absolute -inset-10 opacity-70 blur-[90px]"
+                style={{ background: "radial-gradient(40% 55% at 20% 22%, rgba(0,242,255,0.16), transparent 70%), radial-gradient(42% 55% at 82% 24%, rgba(255,0,234,0.14), transparent 70%), radial-gradient(45% 55% at 30% 82%, rgba(255,0,234,0.12), transparent 70%), radial-gradient(45% 55% at 85% 84%, rgba(255,204,0,0.10), transparent 70%)" }} />
+              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 h-fit">
+                {[
+                  { n: "01.", title: "The 5-to-1 Markup", body: "Must sustain massive media buying from cost to retail." },
+                  { n: "02.", title: "Highly Demonstrable", body: "Immediate visual \"sizzle\" for TV or digital ads." },
+                  { n: "03.", title: "Mass-Market Appeal", body: "Does it solve an everyday problem for the masses?" },
+                  { n: "04.", title: "The Proof", body: "Clinical studies or strong testimonials required." },
+                ].map((c) => (
+                  <article key={c.n} className="group relative overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.04] p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#00f2ff]/50 hover:bg-white/[0.07] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_0_30px_rgba(0,242,255,0.18)]">
+                    <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
+                    <div className="relative">
+                      <div className="font-mono text-3xl font-black mb-4 text-[#00f2ff]">{c.n}</div>
+                      <h3 className="text-xl font-heading font-bold mb-3">{c.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{c.body}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -230,7 +326,7 @@ export default function Home() {
               <div className="max-w-xl">
                 <p className="font-mono text-xs text-gray-500 mb-4 tracking-wider">// THE WINNER'S CIRCLE</p>
                 <h2 className="text-4xl md:text-5xl font-heading font-bold">
-                  Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Phenomena.</span>
+                  Brand <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Phenomena</span> we built
                 </h2>
               </div>
               <p className="text-gray-400 font-mono text-sm border-l-2 border-[#00f2ff] pl-6 max-w-xs">
@@ -249,7 +345,7 @@ export default function Home() {
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Repositioned a boxing legend into a $1B+ kitchen staple.</p>
                 <a 
                   href="#booking-terminal" 
-                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all"
+                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-full hover:bg-[#00f2ff] hover:text-black transition-all"
                 >
                   Analyze DRTV Logic
                 </a>
@@ -264,7 +360,7 @@ export default function Home() {
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Engineered a global cultural phenomenon for retail expansion.</p>
                 <a 
                   href="#booking-terminal" 
-                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all"
+                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-full hover:bg-[#00f2ff] hover:text-black transition-all"
                 >
                   Explore Viral Scaling
                 </a>
@@ -279,7 +375,7 @@ export default function Home() {
                 <p className="text-gray-400 text-sm mb-8 leading-relaxed">Disrupted the high-end appliance market through strategic pricing.</p>
                 <a 
                   href="#booking-terminal" 
-                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-xl hover:bg-[#00f2ff] hover:text-black transition-all"
+                  className="w-full block text-center py-3 border border-[#00f2ff] text-[#00f2ff] font-mono text-xs font-bold uppercase rounded-full hover:bg-[#00f2ff] hover:text-black transition-all"
                 >
                   Review Product ROI
                 </a>
@@ -408,7 +504,7 @@ export default function Home() {
                     </select>
                   </div>
 
-                  <button type="submit" className="w-full mt-8 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest py-4 rounded-lg hover:scale-[1.02] transition-all flex justify-center items-center gap-3 shadow-[0_0_30px_rgba(0,242,255,0.3)]">
+                  <button type="submit" className="w-full mt-8 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest py-4 rounded-full hover:scale-[1.02] transition-all flex justify-center items-center gap-3 shadow-[0_0_30px_rgba(0,242,255,0.3)]">
                     See Eddy's Availability
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </button>
