@@ -604,7 +604,7 @@ const SOLUTIONS: Solution[] = [
   },
   {
     key: "seo",
-    title: "SEO & AIEO Optimization",
+    title: "SEO & AIO Optimization",
     body: "Technical SEO, keyword research, and answer-engine optimization that surface you in Google — and inside ChatGPT, Perplexity, and AI Overviews — pulling qualified traffic that compounds long after the work is done.",
     glyph: "M11 4a7 7 0 100 14 7 7 0 000-14zM16 16l4 4",
     color: "#ff00ea",
