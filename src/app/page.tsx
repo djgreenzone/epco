@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* --- START THE DARK BLOCK --- */}
-      <div className="bg-[#0b0e14]">
+      <div className="bg-black">
 
         {/* 5. THE BENTO GRID */}
         <section className="py-24">

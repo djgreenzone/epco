@@ -367,7 +367,7 @@ function ProcessPinned() {
       style={{ height: `${STEPS.length * 85}vh` }}
       className="relative"
     >
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden px-8 pb-16 pt-20 md:px-12 md:pt-24">
+      <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden px-8 py-16 md:px-12">
         <div className="mx-auto w-full max-w-6xl">
           <Eyebrow>{"// THE PROCESS"}</Eyebrow>
           <h2
@@ -378,7 +378,7 @@ function ProcessPinned() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-8 flex w-full max-w-6xl flex-1 items-center">
+        <div className="mx-auto mt-10 w-full max-w-6xl">
           <div className="grid w-full grid-cols-[280px_1fr] gap-16 xl:gap-24">
             <div>
               <ProcessRail active={active} />
@@ -987,6 +987,43 @@ export default function ProductDevelopmentClient() {
           </Reveal>
         </div>
       </Section>
+
+      {/* ---------------- TRUST BAR (logo marquee, pulled from home page) ---------------- */}
+      <style>{`
+        @keyframes seamless-marquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-100%); }
+        }
+        .animate-seamless-marquee { animation: seamless-marquee 35s linear infinite; }
+      `}</style>
+      <section className="relative z-40 flex flex-col items-center overflow-hidden border-b border-gray-100 bg-white py-6 shadow-xl">
+        <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-gray-400">
+          {"// BEHIND 30 YEARS OF CONSUMER PHENOMENA"}
+        </p>
+        <div className="flex w-full overflow-hidden">
+          <div className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8">
+            <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
+            <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
+            <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
+            <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
+            <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
+            <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
+            <img src="/Armsezzlogo.png" alt="ArmsEzzz" className="h-16 w-auto object-contain" />
+          </div>
+          <div
+            className="flex w-max min-w-full shrink-0 animate-seamless-marquee items-center justify-around gap-16 px-8"
+            aria-hidden="true"
+          >
+            <img src="/GeorgFormanGrill.png" alt="Foreman" className="h-16 w-auto object-contain" />
+            <img src="/Ninja_logo.png" alt="Ninja" className="h-16 w-auto object-contain" />
+            <img src="/QVC%20Logo.png" alt="QVC" className="h-16 w-auto object-contain" />
+            <img src="/Snuggie.png" alt="Snuggie" className="h-16 w-auto object-contain" />
+            <img src="/Ped-Egg.png" alt="Ped Egg" className="h-16 w-auto object-contain" />
+            <img src="/Magic-Bullet.png" alt="Magic Bullet" className="h-16 w-auto object-contain" />
+            <img src="/Armsezzlogo.png" alt="ArmsEzzz" className="h-16 w-auto object-contain" />
+          </div>
+        </div>
+      </section>
 
       {/* ---------------- PROCESS ---------------- */}
       <ProcessSection />
