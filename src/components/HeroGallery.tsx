@@ -20,6 +20,8 @@ type Tile = {
   asset: string;
   /** set when the filename already carries its own resolution suffix */
   exact?: boolean;
+  /** absolute image URL — overrides the media()-built src (image tiles only) */
+  imageUrl?: string;
   client: string;
   logo?: string;
   verified?: boolean;
@@ -69,6 +71,15 @@ const RIGHT_BOTTOM: Tile = {
   client: "ArmsEzzz",
   verified: true,
   href: "https://armsezzz.com",
+};
+
+const RIGHT_THIRD: Tile = {
+  id: "epco-keyskilled",
+  kind: "image",
+  asset: "epco-keyskilled",
+  imageUrl: media("digital-marketing", "web-design.webp"),
+  client: "Key Skilled Personnel",
+  verified: true,
 };
 
 /* ------------------------------------------------------------------ */
@@ -159,7 +170,7 @@ function Media({ tile }: { tile: Tile }) {
     "absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]";
 
   if (tile.kind === "image") {
-    return <img src={media(SERVICE, `${tile.asset}.webp`)} alt={tile.client} className={shared} />;
+    return <img src={tile.imageUrl ?? media(SERVICE, `${tile.asset}.webp`)} alt={tile.client} className={shared} />;
   }
 
   return (
@@ -234,10 +245,11 @@ export default function HeroGallery() {
           <TileCard tile={CENTER} className="aspect-[4/5] md:aspect-auto md:h-[calc(100%+2.5rem)] md:-translate-y-5" />
         </div>
 
-        {/* RIGHT — short, then tall (mirrors the left) */}
+        {/* RIGHT — three equal cards */}
         <div className="flex flex-col gap-4">
           <TileCard tile={RIGHT_TOP} className="aspect-[4/3] md:aspect-auto md:flex-1" />
-          <TileCard tile={RIGHT_BOTTOM} className="aspect-[4/5] md:aspect-auto md:flex-[1.35]" />
+          <TileCard tile={RIGHT_BOTTOM} className="aspect-[4/3] md:aspect-auto md:flex-1" />
+          <TileCard tile={RIGHT_THIRD} className="aspect-[4/3] md:aspect-auto md:flex-1" />
         </div>
       </div>
 
