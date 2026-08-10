@@ -77,7 +77,6 @@ export default function Home() {
             className="inline-flex justify-center items-center gap-3 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest px-8 py-5 rounded-full hover:scale-[1.02] transition-all shadow-[0_0_30px_rgba(0,242,255,0.3)] mt-8"
           >
             Book a Strategy Call
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
           </a>
         </div>
       </section>
