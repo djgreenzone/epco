@@ -2,7 +2,10 @@
 
 **Live:** https://www.eddypham.company
 **Repo:** https://github.com/djgreenzone/epco
-**Latest commit at handoff:** `77c2f28` — "Restore gradient on KPI numbers"
+
+> Updated after the Product Development build. Two service pages are now live
+> (`/services/web-development`, `/services/product-development`), plus the legal
+> pages and site-wide nav.
 
 ---
 
@@ -11,10 +14,11 @@
 EPCO International (Eddy Pham & Company) is a 30-year product development and direct
 response company — George Foreman Grill, Snuggie, Ninja, Magic Bullet, Ped Egg, QVC.
 The existing marketing site is a Next.js app on Vercel. We are adding a set of
-**service pages** beneath it, starting with Web Development.
+**service pages** beneath it.
 
-The design brief was to take the **functional architecture of dialedweb.com** and paint
-it in **EPCO's neon-tech brand**. The Web Development page is complete and live.
+Design brief: take the **functional architecture of dialedweb.com** and paint it in
+**EPCO's neon-tech brand** (glassmorphism, cyan/magenta/yellow gradient, `//` mono
+eyebrows). Web Development and Product Development are complete and live.
 
 ---
 
@@ -68,20 +72,24 @@ Gradient        from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]
 Gradient text   GRADIENT + text-transparent bg-clip-text
 
 Eyebrows        font-mono text-[11px] uppercase tracking-[0.14em] text-[#00f2ff]
-                prefixed with "// " — inherited from EPCO's terminal voice
+                prefixed with "// "
 ```
 
-**Section shell — every section must match this or headlines misalign:**
+**Section shell** — every section matches this or headlines misalign:
 ```jsx
 <section className="px-8 py-24 md:px-12 md:py-32">
   <div className="mx-auto max-w-6xl"> ... </div>
 </section>
 ```
 
-**Font gotcha:** something in the project overrides raw `<h2>`/`<p>` to a condensed
-mono face. Components built with raw markup need an explicit
-`style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }}`.
-Root cause never found — worth tracking down.
+**Font gotcha:** something overrides raw `<h1>/<h2>/<p>` to a condensed mono face
+(root cause never found). Components built with raw markup carry an explicit
+`style={{ fontFamily: "var(--font-geist-sans), Arial, sans-serif" }}`. Inline style
+wins over the stray rule regardless of selector — apply it to text elements.
+
+**Sticky gotcha:** any `overflow: hidden` ancestor breaks `position: sticky`
+descendants. Use `overflow-x-clip` (not `overflow-hidden`) on wrappers that need to
+contain horizontal bleed but sit above a pinned section.
 
 ---
 
@@ -90,27 +98,16 @@ Root cause never found — worth tracking down.
 ```
 /                                  homepage (pre-existing)
 /services/web-development          DONE — live
+/services/product-development      DONE — live
+/legal/terms  /legal/privacy       DONE — live
 /sitemap.xml  /robots.txt  404     DONE
 /services                          DOES NOT EXIST — 404s (hub page, not built)
 /work                              DOES NOT EXIST — HeroGallery links point here
 ```
 
-### Page structure (`/services/web-development`)
-
-`page.tsx` is a **server component** holding `metadata` only; it renders
-`ServicesClient.tsx` which is `"use client"`. This split exists because a client
-component cannot export `metadata`. Keep this shape — it's also the right structure
-for the `[slug]` template.
-
-Section order in `ServicesClient.tsx`:
-1. Hero — earth video bg, centred H1, `<HeroGallery />`
-2. KPIs — glass cards, count-up on scroll, gradient numbers
-3. Bento grid — 4 capabilities, glass, asymmetric spans
-4. `<StackCarousel />` — 9 disciplines, autoplay marquee
-5. `<PhasePipeline />` — 4 phases → SVG connectors → "Your Brand"
-6. `<EngineScrub />` — scroll-scrubbed 96-frame sequence
-7. `<KineticFinale />` — scroll-lit word stack
-8. `<PhenomenonCTA />` — animated aurora + glass card
+Each service page is a **server `page.tsx`** (holds `metadata` only) that renders a
+`"use client"` client component. Keep this split — a client component can't export
+`metadata`, and it's the right shape for a future `[slug]` template.
 
 ---
 
@@ -118,73 +115,100 @@ Section order in `ServicesClient.tsx`:
 
 | File | Notes |
 |---|---|
-| `Header.tsx` | Desktop nav + mobile hamburger drawer. Add services to the `LINKS` array — both breakpoints read from it. Header must NOT be `relative` or the fixed drawer mis-anchors. |
-| `Footer.tsx` | Privacy + Terms still `href="#"` — dead links. |
-| `HeroGallery.tsx` | 5 tiles: 2 left, centre montage (lifted 20px, overhangs), 2 right. Outer 4 are external `<a>` links. **Infortum + ArmsEzzz still point at `example.com`.** |
-| `StackCarousel.tsx` | Continuous marquee, list rendered twice for seamless wrap. Pauses on hover, drag overrides, static on reduced-motion. `SPEED` const at top. |
-| `PhasePipeline.tsx` | Design/Build/Optimize/Launch. SVG connectors with staggered `stroke-dashoffset` pulses. Connectors hidden below `lg`. |
-| `PhenomenonCTA.tsx` | Aurora field — 3 drifting blobs on 22s/27s/33s cycles + 48s conic sweep + perspective grid. All CSS keyframes. |
-| `EngineScrub.tsx` | Canvas frame-scrub, 96 WebP preloaded, `useMotionValueEvent` maps scroll → frame. **Mobile skips the preload entirely** via `matchMedia` and shows frame 048 static. Section is `340vh` desktop / `100vh` mobile. |
+| `Header.tsx` | Desktop nav + mobile hamburger drawer, both read the `LINKS` array. Now lists **Product Development** + **Web Development**. Header must NOT be `relative` or the fixed drawer mis-anchors. |
+| `Footer.tsx` | Navigation column: Home · Product Development · Web Development · Contact. Legal → `/legal/privacy`, `/legal/terms`. Connect column: Website · 247Eddy · **LinkedIn** (replaced TikTok). |
+| `LegalDoc.tsx` | Shared server-rendered layout for Terms + Privacy (eyebrow, title, effective date, numbered sections). |
+| `HeroGallery.tsx` | Web-dev only. 5 tiles. **Infortum + ArmsEzzz still point at `example.com`.** |
+| `StackCarousel.tsx` | Web-dev marquee. |
+| `PhasePipeline.tsx` | Web-dev phase pipeline. |
+| `PhenomenonCTA.tsx` | Web-dev aurora CTA — 3 drifting blobs (22/27/33s) + 48s conic sweep + perspective grid + sheen. All CSS keyframes. **The product-dev final CTA replicates this exactly.** |
+| `EngineScrub.tsx` | Web-dev canvas frame-scrub, 96 WebP, `scrollYProgress` → frame. Mobile shows static frame 048. Section `340vh` sticky. **The product-dev rocket launch is the same pattern.** |
 | `WorkCarousel.tsx` | **ORPHANED** — nothing imports it. Safe to delete. |
-| `lib/media.ts` | `media(service, file)` resolves Supabase paths. |
+| `lib/media.ts` | `media(service, file)` → `${NEXT_PUBLIC_MEDIA_URL}/services/${service}/${file}`. |
+
+### Product Development page (`ProductDevelopmentClient.tsx`)
+
+Single self-contained client component (no dependency on web-dev components). Section order:
+
+1. **Hero** — gear background video (`epco-hero.mp4`) at 50% opacity + bottom-up black
+   gradient + ambient glow. CTA "Book a Call" → `/#booking-terminal` (no arrow).
+2. **KPIs** — 3 glass cards (160+ / 30+ / 5+), count-up, gradient numbers. Matches web-dev.
+3. **Manifesto** — "Ideas Are Easy. Execution Is Everything."
+4. **Process** — 7-step pinned scroll-scrub (EngineScrub-style pin: tall wrapper +
+   sticky h-screen, `scrollYProgress` steps the active phase). Heading lives inside the
+   pinned panel; content fills the viewport so entry/exit gaps match other sections.
+5. **Launch** — scroll-scrubbed rocket, 96 WebP frames on a canvas (`epco-launch-001…096`),
+   pinned 300vh. Title bottom-left. Mobile shows static frame 060.
+6. **Journey** ("From Sketch to Launch") — glass frame (black, border + inner glow),
+   vertical timeline left (staggered reveal), rotating globe video right (`epco-globe.mp4`).
+7. **Discipline** — Apple "Get to know" style card carousel (scroll-snap + arrows), 7
+   question cards, `+` expands to reveal "why it matters." Image slots ready
+   (`epco-disc-*`, portrait 3:4) — currently gradient placeholders.
+8. **Partner** — bio + agency clichés struck through by an animated gradient line →
+   gradient payoff.
+9. **Bring Us What You Have** — cards + the 8 category chips.
+10. **Final CTA** — "Start With the Possibility," full PhenomenonCTA aurora + glass +
+    sheen. "Book a Call" → `/#booking-terminal`.
 
 ---
 
 ## Media pipeline
 
-All assets live in Supabase at `media/services/web-development/` (flat, no subfolders).
+Assets live in Supabase at `media/services/<service>/` (flat, no subfolders).
 
-**Encoding recipe** — dark 3D mockup footage, tuned to avoid banding:
-```bash
-ffmpeg -i src.mp4 -an \
- -vf "scale=1280:-2:flags=lanczos,gradfun=strength=1.1:radius=16,\
-      fade=t=in:st=0:d=0.5,fade=t=out:st=END:d=0.5,fps=30" \
- -c:v libx264 -profile:v high -pix_fmt yuv420p -crf 25 -preset medium \
- -x264-params "aq-mode=3:aq-strength=1.1:psy-rd=1.0,0.15" \
- -movflags +faststart out.mp4
+**Two delivery patterns:**
+
+1. **Background loops** (globe, hero gear) — normal looping MP4. If the source doesn't
+   loop, cross-fade the tail into the head for a seamless loop. Encode: `scale`,
+   `gradfun` (de-band dark gradients), `yuv420p`, `-movflags +faststart`, strip audio.
+2. **Scroll/mouse-scrub sequences** (rocket launch, web-dev EngineScrub) — split the
+   video into a **numbered WebP frame sequence** (`epco-*-001.webp`…), preload on a
+   canvas, drive the index by `scrollYProgress`. Smoother than seeking a `<video>`.
+
+**Product-development assets in Supabase:**
+```
+epco-hero.mp4 / epco-hero-poster.webp         gear hero bg loop (1920x1080, seamless)
+epco-globe.mp4 / epco-globe-poster.webp        rotating globe loop (1280x1280, seamless)
+epco-launch-001…096.webp                        rocket launch frame sequence (1600x900)
+epco-launch.mp4                                 UNUSED (superseded by frame sequence) — safe to delete
+epco-disc-*                                     NOT YET UPLOADED — discipline card images (optional)
 ```
 
-Hard-won lessons:
-- **Never pre-grade brightness in ffmpeg.** Crushing levels before an 8-bit encode
-  causes banding. Encode clean, darken with a CSS overlay.
-- `aq-mode=3` biases bits toward dark regions — essential for this footage.
+Hard-won lessons (still true):
+- **Never pre-grade brightness in ffmpeg** — crushing levels before an 8-bit encode
+  causes banding. Encode clean; darken with a CSS overlay.
 - `-pix_fmt yuv420p` is non-negotiable or Safari shows black.
-- Encode to the **slot's aspect ratio** rather than letting `object-cover` crop.
-- Clips rarely loop; fade both ends unless the source starts and ends on black.
-- Shoot mockup backdrops **dark** — bright backdrops are unusable against `#000000`.
-
-Compression achieved: ~300MB of source → ~25MB delivered.
+- A video with a **black background** blends on the page only if the surrounding
+  surface is also pure black. If a colored glow sits behind a black-background video,
+  it outlines the video's square — remove the glow or match the surface to the video.
 
 ---
 
 ## Open items
 
 ### Blocked on DJ
-1. **Testimonials** — the biggest remaining gap. Zero social proof anywhere on a page
-   that looks like a top-tier agency and asks for a call. Two quotes (name, title,
-   company) from SAëF / Infortum / Island City / ArmsEzzz would close it.
-2. **Infortum + ArmsEzzz URLs** — those tiles link to `example.com`.
-3. **Privacy + Terms text** — pages can be built; the legal copy should come from a
-   template DJ trusts or a lawyer.
-4. **Copy for the other four services** — the Phase 3 bottleneck.
+1. **Testimonials** — biggest remaining gap. No social proof anywhere. Two quotes
+   (name, title, company) from SAëF / Infortum / Island City / ArmsEzzz would close it.
+2. **Infortum + ArmsEzzz URLs** — HeroGallery tiles still point at `example.com`.
+3. **Legal copy** — Terms/Privacy are live but flag: confirm the exact legal entity
+   casing (eddyPham&Company vs eddypham&company), the Nevada venue, and update the
+   cookie/analytics/vendor language in the Privacy Policy to match what actually runs.
+4. **Discipline card images** — optional. Portrait 3:4 (≥800×1200), upload as
+   `epco-disc-problem` … `epco-disc-franchise`; then set each card's `img`.
 
-### Quick wins, no decisions needed
-5. **Vercel Analytics** — one click in the dashboard. Currently no way to know whether
-   anyone reaches the CTA.
-6. Delete orphaned `WorkCarousel.tsx`.
-7. OG image for the services page (currently inherits the homepage card).
-8. Structured data — `Organization` + `Service` schema. Relevant because AIO is a
-   service being sold on that page.
+### Quick wins
+5. **Vercel Analytics** — one click in the dashboard.
+6. Delete orphaned `WorkCarousel.tsx` and the unused `epco-launch.mp4`.
+7. OG images per service page.
+8. Structured data — `Organization` + `Service` schema.
 9. Find and fix the mono-font override at its root.
-10. Better `EngineScrub` mobile poster frame — 048 is a bright malasadas close-up that
-    fights the headline. Scan `epco-seq-001…096.webp` for a dark UI frame.
 
-### Phase 3 — the other four services
+### Phase 3 — the remaining three services
 Planned menu order:
 ```
-Product Development
+Product Development   ← done
 Direct Response Marketing
-Web Development     ← done
+Web Development        ← done
 App Development
 Digital Marketing
 ```
@@ -196,21 +220,18 @@ then build `/services` as a hub.
 **Two things to get right:**
 - **Direct Response vs Digital Marketing will cannibalise each other** unless the line
   is drawn hard. Direct Response = DRTV, infomercials, media buying, QVC/HSN, retail
-  placement (offline, 30 years of receipts). Digital Marketing = paid social, SEO,
-  email, funnels (online, performance).
-- **KPI numbers are per-service.** `100ms / 9-Figures / 100%` are web-dev claims and
-  can't be reused. Each service needs its own three, and they need to be defensible.
+  (offline, 30 years). Digital Marketing = paid social, SEO, email, funnels (online).
+- **KPI numbers are per-service and must be defensible.** Web-dev = 100ms / 9-Figures /
+  100%. Product-dev = 160+ launches / 30+ years / 5+ manufacturing markets. Each new
+  service needs its own three.
 
 ---
 
 ## Working notes
 
-- **One terminal tab runs `npm run dev` and nothing else.** Running any other command
-  in it kills the server. `Cmd+T` for everything else.
-- **`sed` line-range replacements are fragile** — line numbers shift between edits and
-  we clipped closing JSX tags twice. Print a wide window first, or use Python.
-- **Pasting long JSX into a heredoc can silently swallow opening tags** (`<a`). Write
-  components with one element per line, or verify with `npm run build` immediately.
-- **After renaming a file, close its old tab in VS Code.** A stale buffer nearly
-  overwrote the metadata wrapper with 500 lines of client component.
+- **One terminal tab runs `npm run dev` and nothing else.** `Cmd+T` for everything else.
 - `npm run build` before every push. Dev mode tolerates what the build won't.
+- **`sed` line-range edits are fragile** — print a wide window first, or use Python.
+- **Pasting long JSX into a heredoc can silently swallow opening tags** — write one
+  element per line, or verify with `npm run build` immediately.
+- After renaming a file, close its old tab in VS Code (stale buffers overwrite).
