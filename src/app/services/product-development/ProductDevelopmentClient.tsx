@@ -9,6 +9,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { media } from "@/lib/media";
+import StickyBookingBar from "@/components/StickyBookingBar";
 
 /* ------------------------------------------------------------------ */
 /*  TOKENS                                                             */
@@ -1399,6 +1400,12 @@ export default function ProductDevelopmentClient() {
           </p>
         </div>
       </section>
+
+      {/* ================= STICKY BOOKING BAR ================= */}
+      <StickyBookingBar
+        message="Ready to turn your idea into a product?"
+        messageShort="Turn your idea into a product."
+      />
     </main>
   );
 }

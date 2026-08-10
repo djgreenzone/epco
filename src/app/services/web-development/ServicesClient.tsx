@@ -15,6 +15,7 @@ import StackCarousel from "@/components/StackCarousel";
 import PhenomenonCTA from "@/components/PhenomenonCTA";
 import PhasePipeline from "@/components/PhasePipeline";
 import EngineScrub from "@/components/EngineScrub";
+import StickyBookingBar from "@/components/StickyBookingBar";
 import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
@@ -504,6 +505,12 @@ export default function ServicesClient() {
 
       {/* ================= CTA ================= */}
       <PhenomenonCTA />
+
+      {/* ================= STICKY BOOKING BAR ================= */}
+      <StickyBookingBar
+        message="Ready to build a site that actually converts?"
+        messageShort="Build a site that converts."
+      />
     </main>
   );
 }
