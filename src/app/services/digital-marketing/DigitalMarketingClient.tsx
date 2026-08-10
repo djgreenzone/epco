@@ -13,6 +13,7 @@ import {
 } from "framer-motion";
 import PhenomenonCTA from "@/components/PhenomenonCTA";
 import StickyBookingBar from "@/components/StickyBookingBar";
+import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
 /*  TOKENS                                                             */
@@ -601,6 +602,7 @@ const SOLUTIONS: Solution[] = [
     body: "Research, creative, and relentless performance analysis across paid, search, and social. Integrated campaigns that put you in front of ready-to-buy audiences and turn attention into qualified leads and measurable revenue — not vanity metrics.",
     glyph: "M4 19h16M6 15l4-4 3 3 6-7",
     color: "#00f2ff",
+    media: "digital-marketing.webp",
   },
   {
     key: "seo",
@@ -608,6 +610,7 @@ const SOLUTIONS: Solution[] = [
     body: "Technical SEO, keyword research, and answer-engine optimization that surface you in Google — and inside ChatGPT, Perplexity, and AI Overviews — pulling qualified traffic that compounds long after the work is done.",
     glyph: "M11 4a7 7 0 100 14 7 7 0 000-14zM16 16l4 4",
     color: "#ff00ea",
+    media: "seo-aio.webp",
   },
   {
     key: "social",
@@ -615,6 +618,7 @@ const SOLUTIONS: Solution[] = [
     body: "We run your platforms end to end — compelling content, consistent publishing, and performance-driven optimization that builds brand awareness and an audience you own, not one you rent.",
     glyph: "M12 8a2 2 0 100 4 2 2 0 000-4M6 6a8 8 0 000 12M18 6a8 8 0 010 12",
     color: "#00f2ff",
+    media: "social-media.webp",
   },
   {
     key: "web",
@@ -622,6 +626,7 @@ const SOLUTIONS: Solution[] = [
     body: "Conversion-first sites engineered for speed across every device — award-worthy design wired for direct response, so every campaign lands on a page built to turn clicks into customers.",
     glyph: "M4 5h16v14H4zM4 9h16M7 7h.01M10 7h.01",
     color: "#ffcc00",
+    media: "web-design.webp",
   },
   {
     key: "automation",
@@ -629,6 +634,7 @@ const SOLUTIONS: Solution[] = [
     body: "AI agents and workflows wired into your funnels, email, and operations — automating the busywork, compressing the sales cycle, and compounding results while your team focuses elsewhere.",
     glyph: "M12 3v4m0 10v4M3 12h4m10 0h4M6 6l3 3m6 6l3 3m0-12l-3 3m-6 6l-3 3",
     color: "#ff00ea",
+    media: "ai-automation.webp",
   },
 ];
 
@@ -641,7 +647,25 @@ function SolutionIcon({ d, color, size = "h-6 w-6" }: { d: string; color: string
 }
 
 function MediaPanel({ s }: { s: Solution }) {
-  // When assets arrive, swap this block for: <img src={s.media} .../> or <video>.
+  if (s.media) {
+    return (
+      <div className="relative h-full w-full overflow-hidden">
+        <img
+          src={media("digital-marketing", s.media)}
+          alt={s.title}
+          loading="lazy"
+          className="h-full w-full object-cover"
+        />
+        {/* subtle brand tint + bottom scrim for legibility */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "linear-gradient(to top, #000 0%, rgba(0,0,0,0.75) 12%, rgba(0,0,0,0) 34%)" }}
+        />
+      </div>
+    );
+  }
+  // fallback placeholder (no asset set)
   return (
     <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
       <div
@@ -729,7 +753,7 @@ function SolutionAccordion() {
 
       {/* synced media panel (desktop) */}
       <div className="hidden md:block">
-        <div className="sticky top-24 aspect-[4/3] overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.03] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.10)]">
+        <div className="relative h-full min-h-[440px] overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.03] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.10)]">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.key}
