@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const LINKS = [{ href: "/services/web-development", label: "Web Development" }];
+const LINKS = [
+  { href: "/services/product-development", label: "Product Development" },
+  { href: "/services/web-development", label: "Web Development" },
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
