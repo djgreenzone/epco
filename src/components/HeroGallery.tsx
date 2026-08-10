@@ -59,7 +59,7 @@ const RIGHT_TOP: Tile = {
   asset: "epco-infortum",
   client: "Infortum",
   verified: true,
-  href: "https://example.com",
+  href: "https://infortum.io",
 };
 
 const RIGHT_BOTTOM: Tile = {
@@ -68,7 +68,7 @@ const RIGHT_BOTTOM: Tile = {
   asset: "epco-armsezzz",
   client: "ArmsEzzz",
   verified: true,
-  href: "https://example.com",
+  href: "https://armsezzz.com",
 };
 
 /* ------------------------------------------------------------------ */
