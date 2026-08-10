@@ -354,6 +354,7 @@ function ProcessPinned() {
     offset: ["start start", "end end"],
   });
   const [active, setActive] = useState(0);
+  const reduce = useReducedMotion();
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     const idx = Math.min(STEPS.length - 1, Math.max(0, Math.floor(v * STEPS.length)));
@@ -391,8 +392,8 @@ function ProcessPinned() {
                     key={s.n}
                     aria-hidden={!on}
                     initial={false}
-                    animate={{ opacity: on ? 1 : 0, y: on ? 0 : 28 }}
-                    transition={{ duration: 0.5, ease: EASE }}
+                    animate={{ opacity: on ? 1 : 0, y: on ? 0 : reduce ? 0 : 28 }}
+                    transition={{ duration: reduce ? 0 : 0.5, ease: EASE }}
                     className={`absolute inset-0 ${on ? "" : "pointer-events-none"}`}
                   >
                     <span className="font-mono text-[12px] tracking-[0.2em] text-gray-500">
@@ -474,10 +475,10 @@ function ProcessStacked() {
 
 function ProcessSection() {
   const isDesktop = useIsDesktop();
-  const reduce = useReducedMotion();
-  const pinned = isDesktop && !reduce;
 
-  if (pinned) {
+  // Pin on any screen >= 1024px, regardless of reduced-motion.
+  // (Reduced-motion users still get the pin; their step transitions are instant.)
+  if (isDesktop) {
     return (
       <section className="relative">
         <ProcessPinned />
