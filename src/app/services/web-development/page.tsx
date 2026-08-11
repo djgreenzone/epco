@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
 
-const TITLE = "Conversion-Focused Web Development & Design | EPCO";
+const TITLE = "Web Design & Development That Converts | EPCO";
 const DESCRIPTION =
   "Custom web platforms, mobile applications, and AI integrations engineered for direct response and transactional scale.";
 const URL = "https://www.eddypham.company/services/web-development";
