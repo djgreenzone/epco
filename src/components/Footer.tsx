@@ -23,6 +23,7 @@ export default function Footer() {
               <ul className="text-gray-500 text-sm space-y-4">
                 <li><a href="/" className="hover:text-[#00f2ff] transition-colors">Home</a></li>
                 <li><a href="/services/product-development" className="hover:text-[#00f2ff] transition-colors">Product Development</a></li>
+                <li><a href="/services/direct-response" className="hover:text-[#00f2ff] transition-colors">Direct Response</a></li>
                 <li><a href="/services/web-development" className="hover:text-[#00f2ff] transition-colors">Web Development</a></li>
                 <li><a href="/services/digital-marketing" className="hover:text-[#00f2ff] transition-colors">Digital Marketing</a></li>
                 <li><a href="/#booking-terminal" className="hover:text-[#00f2ff] transition-colors">Contact</a></li>
