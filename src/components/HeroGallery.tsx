@@ -252,24 +252,6 @@ export default function HeroGallery() {
           <TileCard tile={RIGHT_THIRD} className="aspect-[4/3] md:aspect-auto md:flex-1" />
         </div>
       </div>
-
-      <div className="mt-8 flex justify-center">
-        <a
-          href="/work"
-          className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-gray-500 transition-colors hover:text-white"
-        >
-          View all work
-          <svg
-            viewBox="0 0 24 24"
-            className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2.4}
-          >
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </a>
-      </div>
     </motion.div>
   );
 }
