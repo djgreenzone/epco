@@ -830,89 +830,128 @@ const FUNNEL_STAGES = [
 function PinnedFunnel() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+  const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
 
+  // video scales up to full-bleed on the way in, eases back out at the end
+  const vScale = useTransform(scrollYProgress, [0, 0.16, 0.86, 1], [0.82, 1, 1, 0.92]);
+  const vRadius = useTransform(scrollYProgress, [0, 0.16, 0.86, 1], [36, 0, 0, 24]);
+  const vOpacity = useTransform(scrollYProgress, [0, 0.08, 0.92, 1], [0, 1, 1, 0.5]);
+  const overlayOpacity = useTransform(scrollYProgress, [0.08, 0.24], [0.1, 0.5]);
+  const contentOpacity = useTransform(scrollYProgress, [0.16, 0.26, 0.84, 0.94], [0, 1, 1, 0]);
+
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const idx = Math.floor(v * FUNNEL_STAGES.length);
+    const start = 0.26;
+    const end = 0.84;
+    const p = (v - start) / (end - start);
+    const idx = Math.floor(p * FUNNEL_STAGES.length);
     setActive(Math.max(0, Math.min(FUNNEL_STAGES.length - 1, idx)));
   });
 
   const stage = FUNNEL_STAGES[active];
 
   return (
-    <section ref={ref} className="relative h-[360vh]">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden px-8 md:px-12">
-        <div
+    <section ref={ref} className="relative h-[440vh]">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        {/* full-bleed background video that scales in on scroll and eases out */}
+        <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-40 blur-[120px] transition-all duration-700"
-          style={{ background: `radial-gradient(45% 50% at 50% 50%, ${stage.color}22, transparent 70%)` }}
-        />
-        <div className="relative mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-2 md:items-center">
-          {/* left: changing copy */}
-          <div>
-            <Eyebrow>// THE FUNNEL</Eyebrow>
-            <div className="mt-5 min-h-[240px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={stage.key}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, ease: [0.3, 0.8, 0.3, 1] }}
-                >
-                  <div className="font-mono text-sm tracking-[0.24em]" style={{ color: stage.color }}>
-                    {stage.n}
-                  </div>
-                  <h2 className="mt-3 text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[0.95] tracking-[-0.04em] text-white">
-                    {stage.label}.
-                  </h2>
-                  <p className="mt-5 max-w-[42ch] text-lg leading-relaxed text-gray-300">{stage.copy}</p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-            <div className="mt-8 flex gap-2">
-              {FUNNEL_STAGES.map((s, i) => (
-                <span
-                  key={s.key}
-                  className="h-1.5 rounded-full transition-all duration-500"
-                  style={{
-                    width: i === active ? 28 : 10,
-                    background: i <= active ? s.color : "rgba(255,255,255,0.18)",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+          className="absolute inset-0 overflow-hidden"
+          style={reduce ? { opacity: 1 } : { scale: vScale, borderRadius: vRadius, opacity: vOpacity }}
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster={media("digital-marketing", "funnel-bg.webp")}
+            className="h-full w-full object-cover"
+          >
+            <source src={media("digital-marketing", "funnel-bg-1600.mp4")} type="video/mp4" />
+          </video>
+        </motion.div>
 
-          {/* right: funnel bars */}
-          <div className="flex flex-col items-center gap-3">
-            {FUNNEL_STAGES.map((s, i) => {
-              const isActive = i === active;
-              const passed = i < active;
-              return (
-                <div
-                  key={s.key}
-                  className="relative flex items-center justify-center rounded-2xl border transition-all duration-500"
-                  style={{
-                    width: `${100 - i * 17}%`,
-                    height: 74,
-                    borderColor: isActive ? s.color : "rgba(255,255,255,0.10)",
-                    background: isActive ? `${s.color}1f` : passed ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
-                    boxShadow: isActive ? `0 0 34px ${s.color}55` : "none",
-                    opacity: isActive ? 1 : passed ? 0.72 : 0.4,
-                  }}
-                >
-                  <span
-                    className="font-mono text-xs uppercase tracking-[0.16em]"
-                    style={{ color: isActive ? s.color : "rgba(255,255,255,0.6)" }}
+        {/* darkening overlay + vignette for legibility */}
+        <motion.div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-black"
+          style={reduce ? { opacity: 0.5 } : { opacity: overlayOpacity }}
+        />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+
+        {/* funnel content */}
+        <motion.div
+          className="relative flex h-full items-center px-8 md:px-12"
+          style={reduce ? { opacity: 1 } : { opacity: contentOpacity }}
+        >
+          <div className="mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-2 md:items-center">
+            {/* left: changing copy */}
+            <div>
+              <Eyebrow>// THE FUNNEL</Eyebrow>
+              <div className="mt-5 min-h-[240px]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={stage.key}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4, ease: [0.3, 0.8, 0.3, 1] }}
                   >
-                    {s.label}
-                  </span>
-                </div>
-              );
-            })}
+                    <div className="font-mono text-sm tracking-[0.24em]" style={{ color: stage.color }}>
+                      {stage.n}
+                    </div>
+                    <h2 className="mt-3 text-[clamp(2.4rem,6vw,4.5rem)] font-black leading-[0.95] tracking-[-0.04em] text-white">
+                      {stage.label}.
+                    </h2>
+                    <p className="mt-5 max-w-[42ch] text-lg leading-relaxed text-gray-200">{stage.copy}</p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              <div className="mt-8 flex gap-2">
+                {FUNNEL_STAGES.map((s, i) => (
+                  <span
+                    key={s.key}
+                    className="h-1.5 rounded-full transition-all duration-500"
+                    style={{
+                      width: i === active ? 28 : 10,
+                      background: i <= active ? s.color : "rgba(255,255,255,0.18)",
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* right: funnel bars */}
+            <div className="flex flex-col items-center gap-3">
+              {FUNNEL_STAGES.map((s, i) => {
+                const isActive = i === active;
+                const passed = i < active;
+                return (
+                  <div
+                    key={s.key}
+                    className="relative flex items-center justify-center rounded-2xl border backdrop-blur-sm transition-all duration-500"
+                    style={{
+                      width: `${100 - i * 17}%`,
+                      height: 74,
+                      borderColor: isActive ? s.color : "rgba(255,255,255,0.12)",
+                      background: isActive ? `${s.color}26` : passed ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.28)",
+                      boxShadow: isActive ? `0 0 34px ${s.color}66` : "none",
+                      opacity: isActive ? 1 : passed ? 0.72 : 0.45,
+                    }}
+                  >
+                    <span
+                      className="font-mono text-xs uppercase tracking-[0.16em]"
+                      style={{ color: isActive ? s.color : "rgba(255,255,255,0.7)" }}
+                    >
+                      {s.label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
