@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import LegalDoc, { type LegalSection } from "@/components/LegalDoc";
-
 const TITLE = "Privacy Policy | EPCO";
 const DESCRIPTION =
   "How EPCO International collects, uses, discloses, and protects personal information submitted through its website.";
 const URL = "https://www.eddypham.company/legal/privacy";
-
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
@@ -24,9 +22,7 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
 };
-
 const SANS = { fontFamily: "var(--font-geist-sans), Arial, sans-serif" } as const;
-
 function Lead({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <>
@@ -34,13 +30,12 @@ function Lead({ label, children }: { label: string; children: React.ReactNode })
     </>
   );
 }
-
 const sections: LegalSection[] = [
   {
     n: "1",
     title: "Scope of This Policy",
     body: [
-      `This Privacy Policy explains how eddyPham&Company, LLC, doing business as EPCO, collects, uses, discloses, stores, and protects personal information through www.eddypham.company and related contact forms, scheduling tools, and online communications. In this Policy, EPCO, we, us, and our refer to the company, and Site refers to www.eddypham.company.`,
+      `This Privacy Policy explains how eddyPham&Company, LLC, doing business as EPCO, collects, uses, discloses, stores, and protects personal information through [www.eddypham.company](https://www.eddypham.company) and related contact forms, scheduling tools, and online communications. In this Policy, EPCO, we, us, and our refer to the company, and Site refers to [www.eddypham.company](https://www.eddypham.company).`,
       `This Policy applies to visitors, prospective clients, business contacts, and people who submit inquiries through the Site. It does not replace the privacy, confidentiality, ownership, or data provisions in a signed client agreement, nondisclosure agreement, development agreement, transactional agreement, statement of work, or other contract. A signed agreement controls for information covered by that agreement.`,
       `This Policy does not apply to websites, platforms, applications, or services operated by other companies, even when the Site links to or uses them.`,
     ],
@@ -65,7 +60,7 @@ const sections: LegalSection[] = [
         We and our service providers may automatically collect Internet Protocol address, browser type, device type, operating system, referring page, pages viewed, links selected, approximate location based on Internet Protocol address, dates and times of visits, and similar technical information.
       </Lead>,
       <Lead key="f" label="Cookie and similar technology information.">
-        The Site may use cookies, pixels, local storage, logs, analytics tools, and similar technology to operate the Site, remember settings, understand Site use, prevent abuse, and measure performance.
+        The Site currently uses a privacy-friendly, cookieless analytics tool that measures aggregate Site traffic without cookies and without collecting information that identifies you personally. The Site may in the future use cookies, local storage, tags, or similar technologies to operate the Site, remember settings, understand Site use, prevent abuse, or measure performance; any non-essential technologies will be handled as described in Section 6.
       </Lead>,
       <Lead key="g" label="Information from other sources.">
         We may receive information from a referral source, professional contact, social media platform, scheduling provider, analytics provider, public source, or service provider when permitted by law.
@@ -102,8 +97,9 @@ const sections: LegalSection[] = [
     n: "6",
     title: "Cookies and Similar Technologies",
     body: [
-      `Cookies are small files placed on a browser or device. The Site may use cookies and similar technologies that are necessary for Site operation, contact forms, scheduling, security, preferences, analytics, and embedded content.`,
-      `You can usually control cookies through your browser settings. Blocking some cookies may prevent parts of the Site, forms, videos, scheduling tools, or other features from working correctly.`,
+      `Cookies are small files placed on a browser or device. The Site currently uses a privacy-friendly, cookieless analytics service to understand aggregate traffic; it does not set advertising cookies and does not track your activity across other websites. Some cookies or similar technologies may be strictly necessary to operate the Site, submit a form, play embedded media, or maintain security.`,
+      `If EPCO later adds analytics, advertising, or other non-essential cookies or tracking technologies, such as Google Analytics or advertising pixels, the Site will present a consent control that lets you accept or decline those non-essential technologies before they are used, where required by applicable law.`,
+      `You can usually control cookies through your browser settings. Blocking some cookies may prevent parts of the Site, forms, videos, or other features from working correctly.`,
       `Some browsers offer a Do Not Track setting. Because there is no single accepted standard for responding to that setting, the Site may not respond to it. Where applicable law requires recognition of a valid Global Privacy Control signal, EPCO will treat the signal as a request to opt out of covered sale or sharing for that browser or device.`,
     ],
   },
@@ -158,7 +154,7 @@ const sections: LegalSection[] = [
         You may ask EPCO to stop sending promotional email by following an unsubscribe instruction when provided or by contacting EPCO. EPCO may continue sending messages needed to respond to an inquiry, administer a relationship, comply with law, or protect legal rights.
       </Lead>,
       <Lead key="b" label="Cookie choices.">
-        You may use browser settings or any cookie control displayed on the Site to manage certain cookies. Your settings may apply only to the browser and device where you make the choice.
+        When the Site uses non-essential cookies or similar technologies, you may accept or decline them through the consent control the Site presents, and you may also use your browser settings to manage cookies. Your settings may apply only to the browser and device where you make the choice.
       </Lead>,
       <Lead key="c" label="Updating information.">
         You may contact EPCO to request correction of inaccurate contact or business information.
@@ -213,7 +209,7 @@ const sections: LegalSection[] = [
     n: "17",
     title: "Third Party Websites and Social Media",
     body: [
-      `The Site may link to or display content from scheduling services, video providers, social media platforms, Substack, TikTok, or other third party services. Those providers may collect information under their own privacy policies. EPCO does not control their privacy, security, or data practices. Review the provider's policy before using the service.`,
+      `The Site may link to or display content from third party services such as LinkedIn, the Substack newsletter platform, or other providers. Those providers may collect information under their own privacy policies. EPCO does not control their privacy, security, or data practices. Review the provider's policy before using the service.`,
       `Information you post publicly on social media or another public service may be viewed, copied, or used by others. Do not post confidential product or business information in public comments or messages.`,
     ],
   },
@@ -244,7 +240,7 @@ const sections: LegalSection[] = [
     n: "20",
     title: "Contact EPCO",
     body: [
-      `Questions, privacy requests, Nevada opt out requests, and other privacy communications may be submitted through the contact form at www.eddypham.company, or sent to:`,
+      `Questions, privacy requests, Nevada opt out requests, and other privacy communications may be submitted through the contact form at [www.eddypham.company](https://www.eddypham.company), or sent to:`,
       <address key="addr" style={SANS} className="not-italic leading-relaxed text-gray-300">
         eddyPham&amp;Company, LLC, doing business as EPCO
         <br />
@@ -264,13 +260,12 @@ const sections: LegalSection[] = [
     ],
   },
 ];
-
 export default function Page() {
   return (
     <LegalDoc
       eyebrow="// LEGAL"
       title="Privacy Policy"
-      effectiveDate="Effective August 8, 2026"
+      effectiveDate="Effective August 11, 2026"
       intro="This Policy explains what information this website collects, how it is used, and the choices you have. It should be read together with the Terms of Service."
       sections={sections}
     />
