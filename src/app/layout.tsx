@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 // 3. YOUR OPTIMIZED METADATA OBJECT
 export const metadata: Metadata = {
-  title: "EPCO | From Scribbles to Scale",
+  title: "EPCO | Product Development & Direct Response Marketing",
   description: "We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns. Turning product ideas into eight-figure phenomena.",
   keywords: ["Product Engineering", "Global Manufacturing", "Direct Response Marketing", "Eddy Pham", "EPCO"],
   authors: [{ name: "Eddy Pham" }],

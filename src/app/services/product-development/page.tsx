@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ProductDevelopmentClient from "./ProductDevelopmentClient";
 
-const TITLE = "Product Development | EPCO";
+const TITLE = "Product Development Company | Idea to Retail | EPCO";
 const DESCRIPTION =
   "From a sketch, prototype, or problem to a manufacturable, marketable product. EPCO provides the engineering, sourcing, and commercial strategy behind more than 160 product launches.";
 const URL = "https://www.eddypham.company/services/product-development";

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import DigitalMarketingClient from "./DigitalMarketingClient";
 
-const TITLE = "Digital Marketing | EPCO";
+const TITLE = "Direct Response Digital Marketing Agency | EPCO";
 const DESCRIPTION =
   "Nine growth channels run as one revenue engine — social, SEO & SEM, paid ads, lead generation, sales funnels, email, production, and AI automation. Full-funnel direct response built to scale brands to eight figures.";
 const URL = "https://www.eddypham.company/services/digital-marketing";

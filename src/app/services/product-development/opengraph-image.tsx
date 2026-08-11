@@ -7,7 +7,7 @@ export const contentType = OG_CONTENT_TYPE;
 export default function Image() {
   return renderOgImage({
     eyebrow: "// PRODUCT DEVELOPMENT",
-    title: "Sketch to Shelf.",
+    title: "Sketch to Launch.",
     subtitle:
       "Engineering, sourcing, and commercial strategy behind more than 160 product launches.",
   });
