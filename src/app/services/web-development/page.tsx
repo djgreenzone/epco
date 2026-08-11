@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ServicesClient from "./ServicesClient";
+import { WEB_DEVELOPMENT_FAQ } from "./faq";
 
 const TITLE = "Web Design & Development That Converts | EPCO";
 const DESCRIPTION =
@@ -39,12 +40,26 @@ const serviceSchema = {
   areaServed: "Worldwide",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: WEB_DEVELOPMENT_FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <ServicesClient />
     </>

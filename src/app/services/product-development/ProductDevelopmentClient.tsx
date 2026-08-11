@@ -10,6 +10,8 @@ import {
 } from "framer-motion";
 import { media } from "@/lib/media";
 import StickyBookingBar from "@/components/StickyBookingBar";
+import FaqAccordion from "@/components/FaqAccordion";
+import { PRODUCT_DEVELOPMENT_FAQ } from "./faq";
 
 /* ------------------------------------------------------------------ */
 /*  TOKENS                                                             */
@@ -1249,6 +1251,13 @@ export default function ProductDevelopmentClient() {
           </div>
         </Reveal>
       </Section>
+
+      {/* ---------------- FAQ ---------------- */}
+      <FaqAccordion
+        title="Product development, answered."
+        body="The questions inventors and brands ask us most about bringing a product from idea to retail."
+        faqs={PRODUCT_DEVELOPMENT_FAQ}
+      />
 
       {/* ---------------- FINAL CTA (aurora — matches web-dev PhenomenonCTA) ---------------- */}
       <section id="book" className="relative overflow-hidden px-8 py-24 md:px-12 md:py-32">

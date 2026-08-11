@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DigitalMarketingClient from "./DigitalMarketingClient";
+import { DIGITAL_MARKETING_FAQ } from "./faq";
 
 const TITLE = "Direct Response Digital Marketing Agency | EPCO";
 const DESCRIPTION =
@@ -57,12 +58,26 @@ const serviceSchema = {
   },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: DIGITAL_MARKETING_FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function Page() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <DigitalMarketingClient />
     </>

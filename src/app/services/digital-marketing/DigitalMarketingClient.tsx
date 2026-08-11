@@ -13,7 +13,9 @@ import {
 } from "framer-motion";
 import PhenomenonCTA from "@/components/PhenomenonCTA";
 import StickyBookingBar from "@/components/StickyBookingBar";
+import FaqAccordion from "@/components/FaqAccordion";
 import { media } from "@/lib/media";
+import { DIGITAL_MARKETING_FAQ } from "./faq";
 
 /* ------------------------------------------------------------------ */
 /*  TOKENS                                                             */
@@ -833,15 +835,14 @@ function PinnedFunnel() {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
 
-  // video scales up to full-bleed on the way in, eases back out at the end
-  const vScale = useTransform(scrollYProgress, [0, 0.16, 0.86, 1], [0.82, 1, 1, 0.92]);
-  const vRadius = useTransform(scrollYProgress, [0, 0.16, 0.86, 1], [36, 0, 0, 24]);
-  const vOpacity = useTransform(scrollYProgress, [0, 0.08, 0.92, 1], [0, 1, 1, 0.5]);
-  const overlayOpacity = useTransform(scrollYProgress, [0.08, 0.24], [0.1, 0.5]);
-  const contentOpacity = useTransform(scrollYProgress, [0.16, 0.26, 0.84, 0.94], [0, 1, 1, 0]);
+  // video plays as a smaller rounded card, then scales to full-bleed (no fade); eases out at the end
+  const vScale = useTransform(scrollYProgress, [0, 0.24, 0.86, 1], [0.5, 1, 1, 0.94]);
+  const vRadius = useTransform(scrollYProgress, [0, 0.24, 0.86, 1], [26, 0, 0, 22]);
+  const overlayOpacity = useTransform(scrollYProgress, [0.24, 0.36], [0, 0.5]);
+  const contentOpacity = useTransform(scrollYProgress, [0.3, 0.4, 0.84, 0.94], [0, 1, 1, 0]);
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    const start = 0.26;
+    const start = 0.4;
     const end = 0.84;
     const p = (v - start) / (end - start);
     const idx = Math.floor(p * FUNNEL_STAGES.length);
@@ -857,7 +858,7 @@ function PinnedFunnel() {
         <motion.div
           aria-hidden
           className="absolute inset-0 overflow-hidden"
-          style={reduce ? { opacity: 1 } : { scale: vScale, borderRadius: vRadius, opacity: vOpacity }}
+          style={reduce ? {} : { scale: vScale, borderRadius: vRadius }}
         >
           <video
             autoPlay
@@ -872,13 +873,12 @@ function PinnedFunnel() {
           </video>
         </motion.div>
 
-        {/* darkening overlay + vignette for legibility */}
+        {/* darkening layer — stays off during the clean intro, fades in only when copy appears */}
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-black"
-          style={reduce ? { opacity: 0.5 } : { opacity: overlayOpacity }}
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/45"
+          style={reduce ? { opacity: 0.55 } : { opacity: overlayOpacity }}
         />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
 
         {/* funnel content */}
         <motion.div
@@ -1104,6 +1104,13 @@ export default function DigitalMarketingClient() {
 
       {/* ================= KINETIC FINALE ================= */}
       <KineticFinale />
+
+      {/* ================= FAQ ================= */}
+      <FaqAccordion
+        title="Digital marketing, answered."
+        body="The questions brands ask us most about direct response digital marketing, paid ads, SEO, AIO, and funnels."
+        faqs={DIGITAL_MARKETING_FAQ}
+      />
 
       {/* ================= CTA ================= */}
       <PhenomenonCTA />

@@ -16,6 +16,8 @@ import PhenomenonCTA from "@/components/PhenomenonCTA";
 import PhasePipeline from "@/components/PhasePipeline";
 import EngineScrub from "@/components/EngineScrub";
 import StickyBookingBar from "@/components/StickyBookingBar";
+import FaqAccordion from "@/components/FaqAccordion";
+import { WEB_DEVELOPMENT_FAQ } from "./faq";
 import { media } from "@/lib/media";
 
 /* ------------------------------------------------------------------ */
@@ -502,6 +504,13 @@ export default function ServicesClient() {
 
       {/* ================= KINETIC FINALE ================= */}
       <KineticFinale />
+
+      {/* ================= FAQ ================= */}
+      <FaqAccordion
+        title="Web development, answered."
+        body="The questions brands ask us most about conversion-focused web design, custom builds, apps, and AI integration."
+        faqs={WEB_DEVELOPMENT_FAQ}
+      />
 
       {/* ================= CTA ================= */}
       <PhenomenonCTA />
