@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { ImageResponse } from "next/og";
 
 export const OG_SIZE = { width: 1200, height: 630 };
@@ -24,17 +25,30 @@ const AURORA =
   "radial-gradient(55% 60% at 84% 30%, rgba(255,150,40,0.20) 0%, rgba(255,150,40,0) 55%)";
 
 /* Load the site's real Geist typeface so the cards match the hero.
-   Satori needs raw font data — woff is supported (woff2 is not). */
-async function loadFonts() {
-  const [sans900, sans500, mono500] = await Promise.all([
-    fetch(new URL("./fonts/geist-900.woff", import.meta.url)).then((r) => r.arrayBuffer()),
-    fetch(new URL("./fonts/geist-500.woff", import.meta.url)).then((r) => r.arrayBuffer()),
-    fetch(new URL("./fonts/geist-mono-500.woff", import.meta.url)).then((r) => r.arrayBuffer()),
-  ]);
+   Satori needs raw font data — woff is supported (woff2 is not).
+   Read with fs (not fetch): these images are generated at build time on the
+   Node runtime, where fetch() does not support file: URLs. The
+   new URL(..., import.meta.url) literal keeps the font bundled with the route. */
+function loadFonts() {
   return [
-    { name: "Geist", data: sans900, weight: 900 as const, style: "normal" as const },
-    { name: "Geist", data: sans500, weight: 500 as const, style: "normal" as const },
-    { name: "Geist Mono", data: mono500, weight: 500 as const, style: "normal" as const },
+    {
+      name: "Geist",
+      data: readFileSync(new URL("./fonts/geist-900.woff", import.meta.url)),
+      weight: 900 as const,
+      style: "normal" as const,
+    },
+    {
+      name: "Geist",
+      data: readFileSync(new URL("./fonts/geist-500.woff", import.meta.url)),
+      weight: 500 as const,
+      style: "normal" as const,
+    },
+    {
+      name: "Geist Mono",
+      data: readFileSync(new URL("./fonts/geist-mono-500.woff", import.meta.url)),
+      weight: 500 as const,
+      style: "normal" as const,
+    },
   ];
 }
 
@@ -50,8 +64,8 @@ function titleSize(len: number) {
  * Shared branded Open Graph / Twitter card renderer.
  * Kept in a private (_og) folder so Next never treats it as a route.
  */
-export async function renderOgImage({ eyebrow, title, accent, subtitle }: OgParams) {
-  const fonts = await loadFonts();
+export function renderOgImage({ eyebrow, title, accent, subtitle }: OgParams) {
+  const fonts = loadFonts();
   const headlineLen = (title + (accent ? " " + accent : "")).length;
   const size = titleSize(headlineLen);
 
