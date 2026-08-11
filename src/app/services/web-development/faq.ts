@@ -11,7 +11,7 @@ export const WEB_DEVELOPMENT_FAQ: Faq[] = [
   },
   {
     q: "What technology do you build on?",
-    a: "We build wherever you already are. EPCO works across the most popular platforms and languages — WordPress, Shopify, Webflow, and Lovable when you want a familiar, fast-to-launch build; React, Next.js, TypeScript, and Tailwind for fully custom, high-performance sites; and Python, Node, and more on the back end — deployed on whatever hosting fits, from Vercel's edge network to your existing environment. Whether you want a custom build you own outright or a site on a platform your team already knows, we adapt to your stack instead of forcing ours.",
+    a: "We build with whatever fits your project — and your team. For a familiar, fast launch, we work in platforms like WordPress, Shopify, and Webflow. For a fully custom, high-performance site, we build in React and Next.js, backed by Python, Node, and modern infrastructure. Either way, we deploy on the hosting you prefer and work within your existing environment — so you get the right tool for the job, never a one-size-fits-all stack.",
   },
   {
     q: "Do you build mobile apps too?",
