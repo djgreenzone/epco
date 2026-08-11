@@ -11,7 +11,7 @@ export const WEB_DEVELOPMENT_FAQ: Faq[] = [
   },
   {
     q: "What technology do you build on?",
-    a: "EPCO builds on a modern, hand-written stack — Next.js, TypeScript, and Tailwind, deployed on Vercel's global edge network, with Supabase and other services as needed. No page-builders or bloated themes: fast, secure, version-controlled code that you own.",
+    a: "We build wherever you already are. EPCO works across the most popular platforms and languages — WordPress, Shopify, Webflow, and Lovable when you want a familiar, fast-to-launch build; React, Next.js, TypeScript, and Tailwind for fully custom, high-performance sites; and Python, Node, and more on the back end — deployed on whatever hosting fits, from Vercel's edge network to your existing environment. Whether you want a custom build you own outright or a site on a platform your team already knows, we adapt to your stack instead of forcing ours.",
   },
   {
     q: "Do you build mobile apps too?",
@@ -23,7 +23,7 @@ export const WEB_DEVELOPMENT_FAQ: Faq[] = [
   },
   {
     q: "Will I own my website and code?",
-    a: "Yes. Everything EPCO builds is hand-written and version-controlled, and it is yours to keep. Nothing is locked behind a proprietary page-builder or a subscription you cannot leave.",
+    a: "Yes. You own your site, your content, and your accounts. On custom builds, the code is hand-written, version-controlled, and handed to you in full. On platform builds, we set you up with complete ownership and admin access — nothing is held hostage on our accounts or a subscription you cannot leave.",
   },
   {
     q: "How long does a website build take?",
