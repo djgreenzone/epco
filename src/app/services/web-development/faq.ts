@@ -15,7 +15,7 @@ export const WEB_DEVELOPMENT_FAQ: Faq[] = [
   },
   {
     q: "Do you build mobile apps too?",
-    a: "Yes. Alongside websites, EPCO builds native and cross-platform mobile applications for iOS and Android, engineered for speed, scale, and the same direct-response conversion focus as our web work.",
+    a: "Yes. Alongside websites, EPCO builds native and cross-platform mobile applications for iOS and Android, engineered for speed, scale, and the same conversion focus as our web work.",
   },
   {
     q: "Can you integrate AI into my website?",

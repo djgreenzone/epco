@@ -20,15 +20,15 @@ const geistMono = Geist_Mono({
 
 // 3. YOUR OPTIMIZED METADATA OBJECT
 export const metadata: Metadata = {
-  title: "EPCO | Product Development & Direct Response Marketing",
-  description: "We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns. Turning product ideas into eight-figure phenomena.",
-  keywords: ["Product Engineering", "Global Manufacturing", "Direct Response Marketing", "Eddy Pham", "EPCO"],
+  title: "EPCO | Product Development & Digital Marketing Agency",
+  description: "We engineer physical products, source global manufacturing, and deploy full-funnel performance marketing campaigns. Turning product ideas into eight-figure phenomena.",
+  keywords: ["Product Development", "Digital Marketing", "Global Manufacturing", "Performance Marketing", "Direct Response Marketing", "Eddy Pham", "EPCO"],
   authors: [{ name: "Eddy Pham" }],
   metadataBase: new URL("https://www.eddypham.company"),
   
   openGraph: {
     title: "EPCO | From Scribbles to Scale",
-    description: "We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns.",
+    description: "We engineer physical products, source global manufacturing, and deploy full-funnel performance marketing campaigns.",
     url: "https://www.eddypham.company",
     siteName: "EPCO International",
     locale: "en_US",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "EPCO | From Scribbles to Scale",
-    description: "Engineering physical products and eight-figure direct response campaigns.",
+    description: "Engineering physical products and eight-figure performance marketing campaigns.",
   },
 };
 
@@ -51,7 +51,7 @@ const organizationSchema = {
   url: "https://www.eddypham.company",
   logo: "https://www.eddypham.company/icon.png",
   description:
-    "EPCO engineers physical products, sources global manufacturing, and deploys full-stack direct response campaigns — turning product ideas into eight-figure phenomena.",
+    "EPCO engineers physical products, sources global manufacturing, and deploys full-funnel performance marketing campaigns — turning product ideas into eight-figure phenomena.",
   founder: {
     "@type": "Person",
     name: "Eddy Pham",

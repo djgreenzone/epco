@@ -4,7 +4,7 @@ import { WEB_DEVELOPMENT_FAQ } from "./faq";
 
 const TITLE = "Web Design & Development That Converts | EPCO";
 const DESCRIPTION =
-  "Custom web platforms, mobile applications, and AI integrations engineered for direct response and transactional scale.";
+  "Custom web platforms, mobile applications, and AI integrations engineered for conversion and transactional scale.";
 const URL = "https://www.eddypham.company/services/web-development";
 
 export const metadata: Metadata = {

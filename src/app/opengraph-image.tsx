@@ -10,6 +10,6 @@ export default async function Image() {
     title: "From Scribbles to",
     accent: "Scale.",
     subtitle:
-      "We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns.",
+      "We engineer physical products, source global manufacturing, and deploy full-funnel performance marketing campaigns.",
   });
 }

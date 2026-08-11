@@ -10,6 +10,6 @@ export default async function Image() {
     title: "Built to",
     accent: "Convert.",
     subtitle:
-      "Custom web platforms, mobile apps, and AI integrations engineered for direct response and transactional scale.",
+      "Custom web platforms, mobile apps, and AI integrations engineered for conversion and transactional scale.",
   });
 }

@@ -70,7 +70,7 @@ export default function Home() {
             From Scribbles <br /> to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00f2ff] via-[#ff00ea] to-[#ffcc00]">Scale.</span>
           </h1>
           <p className="mt-10 text-xl text-gray-400 max-w-2xl leading-relaxed font-medium">
-            We engineer physical products, source global manufacturing, and deploy full-stack direct response campaigns. No fluff. Just real work and proven ROI.
+            We engineer physical products, source global manufacturing, and deploy full-funnel performance marketing campaigns. No fluff. Just real work and proven ROI.
           </p>
           <a 
             href="#booking-terminal" 
@@ -184,7 +184,7 @@ export default function Home() {
               <div className="mt-8">
                 <p className="font-mono text-xs text-gray-400 mb-4 tracking-wider">// 03. DEPLOY & SCALE</p>
                 <h3 className="text-2xl font-heading font-bold mb-3 text-black">Turn passive viewers into buyers.</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">Full-stack direct response campaigns with proven ROI.</p>
+                <p className="text-gray-600 text-sm leading-relaxed">Full-funnel performance marketing with proven ROI.</p>
               </div>
             </article>
           </div>

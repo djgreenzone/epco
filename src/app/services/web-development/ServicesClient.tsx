@@ -145,7 +145,7 @@ const KPIS = [
     to: 9,
     suffix: "-Figures",
     label: "Scale Capacity",
-    body: "Infrastructure stress-tested to handle massive direct response traffic.",
+    body: "Infrastructure stress-tested to handle massive high-conversion traffic.",
   },
   {
     to: 100,
@@ -171,7 +171,7 @@ const SERVICES: Service[] = [
   {
     eyebrow: "// 01. ARCHITECTURE",
     title: "High-Conversion Web Design",
-    body: "We turn passive traffic into active revenue. Frictionless UI/UX engineered strictly for direct response, speed, and transactional scale.",
+    body: "We turn passive traffic into active revenue. Frictionless UI/UX engineered strictly for conversion, speed, and transactional scale.",
     wide: true,
     glyph: "M4 6h16M4 12h10M4 18h7",
   },
