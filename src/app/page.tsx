@@ -1,32 +1,10 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { createClient } from "@supabase/supabase-js";
+import BookingSurvey from "@/components/BookingSurvey";
 
-// Initialize Supabase ONCE
-// Initialize Supabase ONCE (with build-safe fallbacks)
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://placeholder.supabase.co";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "placeholder-key";
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-export default function Home() { 
+export default function Home() {
   const [showCalendar, setShowCalendar] = useState(false);
-
-  const handleGatekeeperSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const revenue = formData.get("revenue") as string;
-
-    setShowCalendar(true);
-
-    try {
-      await supabase.from("leads").insert([{ name, email, revenue }]);
-    } catch (err) {
-      console.error("Supabase Error:", err);
-    }
-  };
 
   return (
     <main className="min-h-screen bg-white text-obsidian font-sans overflow-x-hidden">
@@ -480,34 +458,8 @@ export default function Home() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent shadow-[0_0_20px_#00f2ff]"></div>
 
             {!showCalendar ? (
-              <div className="p-8 md:p-12 animate-in fade-in duration-500">
-                <form onSubmit={handleGatekeeperSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Full Name</label>
-                      <input type="text" name="name" placeholder="John Doe" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00f2ff] transition-all" required />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Work Email</label>
-                      <input type="email" name="email" placeholder="john@company.com" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00f2ff] transition-all" required />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono text-gray-400 uppercase tracking-wider">Current Monthly Revenue</label>
-                    <select name="revenue" defaultValue="" className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#00f2ff] appearance-none" required>
-                      <option value="" disabled>Select your current scale...</option>
-                      <option value="Pre-Revenue">Pre-Revenue / Prototype Stage</option>
-                      <option value="$10k - $50k/mo">$10k - $50k / month</option>
-                      <option value="$100k+/mo">$100k+ / month</option>
-                    </select>
-                  </div>
-
-                  <button type="submit" className="w-full mt-8 bg-gradient-to-r from-[#00f2ff] to-[#ff00ea] text-white font-black uppercase tracking-widest py-4 rounded-full hover:scale-[1.02] transition-all flex justify-center items-center gap-3 shadow-[0_0_30px_rgba(0,242,255,0.3)]">
-                    See Eddy's Availability
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </button>
-                </form>
+              <div className="animate-in fade-in duration-500">
+                <BookingSurvey onComplete={() => setShowCalendar(true)} />
               </div>
             ) : (
               <div className="w-full h-[700px] p-2 animate-in fade-in duration-700">
