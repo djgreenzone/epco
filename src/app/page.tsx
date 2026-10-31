@@ -454,23 +454,22 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="bg-[#121620] border border-[#00f2ff]/20 rounded-2xl shadow-[0_0_50px_rgba(0,242,255,0.15)] relative overflow-hidden min-h-[600px]">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent shadow-[0_0_20px_#00f2ff]"></div>
-
-            {!showCalendar ? (
-              <div className="animate-in fade-in duration-500">
-                <BookingSurvey onComplete={() => setShowCalendar(true)} />
-              </div>
-            ) : (
+          {!showCalendar ? (
+            <div className="animate-in fade-in duration-500">
+              <BookingSurvey onComplete={() => setShowCalendar(true)} />
+            </div>
+          ) : (
+            <div className="bg-[#121620] border border-[#00f2ff]/20 rounded-2xl shadow-[0_0_50px_rgba(0,242,255,0.15)] relative overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-[#00f2ff] to-transparent shadow-[0_0_20px_#00f2ff]"></div>
               <div className="w-full h-[700px] p-2 animate-in fade-in duration-700">
-                <iframe 
-                  src="https://cal.com/eddypham/a-little-more?embed=true" 
+                <iframe
+                  src="https://cal.com/eddypham/a-little-more?embed=true"
                   className="w-full h-full border-none rounded-xl bg-transparent"
                   title="Book a call with Eddy"
                 />
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
